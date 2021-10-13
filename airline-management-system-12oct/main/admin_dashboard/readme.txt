@@ -1,0 +1,1 @@
+<-- All admin related files including admin_dashboard to be kept here -->

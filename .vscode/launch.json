@@ -5,18 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "firefox",
-            "request": "launch",
-            "reAttach": true,
-            "name": "login.html",
-            "file": "${workspaceFolder}/login.html"
-        },
-        
-        {
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "${workspaceFolder}/login.html",
+            "url": "http://localhost/GitHub/SSL_Project/airline-management-system-12oct/main/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
