@@ -2,6 +2,7 @@
 session_start();
 if (isset($_SESSION["admin_id"])) {
     $admin_id = $_SESSION["admin_id"];
+    session_write_close();
 } else {
 
     // means the username is not set in session, the user is not-logged-in
@@ -15,47 +16,24 @@ if (isset($_SESSION["admin_id"])) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Airline management system</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-  
-<!-- Favicons are not needed (that logo on tab name)-->
-  
-
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="../assets_welcome_page/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../assets_welcome_page/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets_welcome_page/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets_welcome_page/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../assets_welcome_page/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../assets_welcome_page/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../assets_welcome_page/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="../assets_welcome_page/vendor/line-awsome/line-awesome.min.css" rel="stylesheet">  
-<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
-  <!-- Template Main CSS File -->
-  <link href="../assets_welcome_page/css/style.css" rel="stylesheet">
-  <link href="../assets_welcome_page/css/style2.css" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="admin_dashboard_style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-
 <body>
-   <input type="checkbox" id="nav-toggle"> 
+
+    <input type="checkbox" id="nav-toggle"> 
     <div class="sidebar">
         <div class="sidebar-brand">
-           <h2>
+           <h2 >
                <center>
                    <br/>
                 <span>Airline Management</span>
@@ -68,130 +46,66 @@ if (isset($_SESSION["admin_id"])) {
                     <a href="" class="active"><span class="las la-home"></span>
                     <span>Dashboard</span></a>
                 </li>
-		<br>
+                <br/>
                 <li>
-                    <a href="profile.html"><span class="las la-user-circle"></span>
-                    <span>Profile</span></a>
+                    <a href="add_new_flight/add_new_flight.php" "><span class="las la-home"></span>
+                    <span>Add new flight</span></a>
+                </li>
+                <br>
+                <li>
+                    <a href="view_delete_passenger_record/view_delete_passenger_record.php" "><span class="las la-home"></span>
+                    <span>View/Delete a Passenger</span></a>
+                </li>
+                <br>
+                <li>
+                    <a href="view_remove_flight/view_remove_flight.php" "><span class="las la-circle"></span>
+                    <span>View/Remove a flight</span></a>
+                </li>
+                <br>
+                <li>
+                    <a href="update_flight/update_flight.php" "><span class="las la-home"></span>
+                    <span>Update flight details</span></a>
+                </li>
+                <br>
+                <li>
+                    <a href="manage_booked_flights/manage_booked_flights.php" "><span class="las la-sign-out-alt"></span>
+                    <span>Booked flight Tickets</span></a>
+                </li>
+                <br>
+                <li>
+                    <a href="view_edit_profile/view_profile.php"><span class="las la-user-circle"></span>
+                    <span>View/Edit Profile</span></a>
                 </li>
                 <br/>
                 <li>
-                    <a href=""><span class="las la-sign-out-alt"></span>
+                    <a href="../admin_login/admin_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>
         </div>
     </div>
-<div class="main-content">
-<main>
-	 <!-- ======= Header ======= -->
+    <div class="main-content">
         <header>
            <h2>
              <label for="nav-toggle">
                  <span class="las la-bars"></span>
              </label>
-             Dashboard
+             Admin Dashboard
             </h2>
+           
         </header>
-    <!-- ======= Dashboard Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon">
-		<i class="las la-plane"></i>
-		</div>
-              <h4><a href="">Add a new flight</a></h4>
-              <p>Add a new Flights for Passengers and delight them by your services.</p>
-            </div>
-          </div>
+    <main>
+        
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
-            data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="las la-redo"></i><i class="las la-plane"></i></div>
-              <h4><a href="">Update an existing flight</a></h4>
-              <p>Make changes to previously added flights.</p>
-            </div>
-          </div>
+    </main>
+    </div>  
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
-            data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="las la-undo"></i><i class="las la-plane"></i></div>
-              <h4><a href=""> Remove an existing flight</a></h4>
-              <p>Cancel the flight scheduled.</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
-            data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-redo"></i><i class="bx bx-copy"></i></div>
-              <h4><a href="">Update reservation status</a></h4>
-              <p>make changes to reservation status</p>
-            </div>
-          </div>
-
-        </div>
-
-<br>
-<br>
-
-        <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="las la-eye"></i></div>
-              <h4><a href="">View all flights</a></h4>
-              <p>Have a look on all the added flights available.</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
-            data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-book"></i></div>
-              <h4><a href="">View Booked flights</a></h4>
-              <p>View all the booked flights by passengers.</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
-            data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="las la-ban"></i></div>
-              <h4><a href="">Delete a passenger record</a></h4>
-              <p>Remove the record of passenger with cancelled booking.</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in"
-            data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-user"></i></div>
-              <h4><a href="">View all passenger record</a></h4>
-              <p>Passengers who have booked the filght</p>
-            </div>
-          </div>
-
-        </div>
-
+    <div class="main-content">  
+      <div class="bar">
+        <h2>Welcome to your dashboard, Admin !</h2>
       </div>
-    </section>
-</main>
-</div><!--End #mainContent-->   
-  <!-- Vendor JS Files -->
-  <script src="../assets_welcome_page/vendor/aos/aos.js"></script>
-  <script src="../assets_welcome_page/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets_welcome_page/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../assets_welcome_page/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="../assets_welcome_page/vendor/php-email-form/validate.js"></script>
-  <script src="../assets_welcome_page/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../assets_welcome_page/vendor/waypoints/noframework.waypoints.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="../assets_welcome_page/js/main.js"></script>
-
-</body>
-
-</html>
+    </div>
+    
+    </body>
+    </html>
+    

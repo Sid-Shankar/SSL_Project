@@ -62,9 +62,12 @@ if (!mysqli_query($connect, $sql))
   echo "Error creating table: " . mysqli_error($connect);
 }
 
+//MODIFIED to add passeger_id field
+
 $sql="CREATE TABLE IF NOT EXISTS airline_system.booked_flights (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     flight_no INT(12) NOT NULL,
+    passenger_id VARCHAR(50) NOT NULL UNIQUE,
     pass_name VARCHAR(50) NOT NULL,
     fare_paid INT(12) NOT NULL,
     reservation_status VARCHAR(50) NOT NULL
@@ -116,6 +119,15 @@ $sql="INSERT INTO airline_system.flights (type_of_flight,flight_no,source,destin
     SELECT * FROM (SELECT 'International', '423', 'Los angeles' , 'Singapore' , 'Non-stop', '2021-11-14', '18:22:00', '22:56:00' , 'Buisness' , 'Veg/Non-veg' , '23800', '10', 'On-time') AS tmp
     WHERE NOT EXISTS (SELECT flight_no FROM airline_system.flights WHERE flight_no ='423') LIMIT 1 ";
 
+
+if (!mysqli_query($connect, $sql)) 
+{
+    echo "Error inserting data: " . mysqli_error($connect);
+}
+
+//MODIFIED to insert a sample booked flight, need to see how it works
+
+$sql="INSERT INTO airline_system.booked_flights (flight_no,passenger_id,pass_name,fare_paid,reservation_status) SELECT * FROM (SELECT '911', 'sid123', 'siddharth', '5700', 'Waiting') AS tmp WHERE NOT EXISTS (SELECT pass_name from airline_system.booked_flights WHERE pass_name='siddharth') LIMIT 1";
 
 if (!mysqli_query($connect, $sql)) 
 {

@@ -45,6 +45,11 @@
       max-height: 40px;
     }
     
+
+    .col-sm-3 {
+    width: 55%;
+  }
+
     </style>
 
   
@@ -87,7 +92,7 @@
           <li><a href="index.php">Home</a></li>
           <li>Search flights</li>
         </ol>
-        <h2>Search flights  ( Work in Progress ... )</h2>
+        <h2>Search flights</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
@@ -102,67 +107,50 @@
         <div class="container-fluid h-100">
           <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end mb-4 page-title">
-              <h3>Search your flights here </h3>
+              <h3 style="color: orangered;font-family: Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;border-bottom: 1px solid #e7510c;padding-bottom: 10px;">Search your flights here </h3>
               <br>
-              <form id="search-bar" action="search_results.php" method="POST" >
+              <form id="search-bar" action="search_results_new.php" method="POST" >
                 <div class="row form-group">
                   <div class="col-sm-3">
-                    <label for="" class="control-label">From</label>
-                    <select name="departure_airport_id" id="departure_location"
+                    <label for="" class="control-label">From: &nbsp; </label>
+                    <select name="departure_airport_id" id="departure_location" required
                     >
 
-                      <option value="starter" selected disabled hidden>Source </option>
+                      <option value="" selected disabled hidden>Source </option>
                       <option value="Delhi">Delhi</option>
 
                       <option value="goa">Goa</option>
                       <option value="chandigarh">Chandigarh</option>
                     </select>
                   </div>
+                  <br><br>
+                  <span>
                   <div class="col-sm-3">
-                    <label for="" class="control-label">To</label>
-                    <select name="arrival_airport_id" id="arrival_airport_id"
+                    <label for="" class="control-label">To: &nbsp;</label>
+                    <select name="arrival_airport_id" id="arrival_airport_id" required
                       >
 
-                      <option value="starter" selected disabled hidden>Destination </option>
+                      <option value="" selected disabled hidden>Destination </option>
                       <option value="varanasi">Varanasi</option>
                       <option value="Mumbai">Mumbai</option>
                       <option value="bangalore">Bangalore</option>
 
                     </select>
                   </div>
+                </span>
+                <br><br>
+                <span>
                   <div class="col-sm-3">
-                    <label for="" class="control-label">Departure Date</label>
-                    <input type="date"  name="date" autocomplete="off">
-                  </div>
-                  <div class="col-sm-3" id="rdate" style="display: none">
-                    <label for="" class="control-label">Return Date</label>
-                    <input type="date" class="form-control input-sm datetimepicker2" name="date_return"
-                      autocomplete="off">
-                  </div>
-                </div>
-                <div class="row form-group">
-                  <div class="col-sm-2 text-center">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="trip" id="oneway" value="1" checked>
-                      <label class="form-check-label" for="oneway">
-                        One-way
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-sm-2 text-center">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="trip" id="rtrip" value="2">
-                      <label class="form-check-label" for="rtrip">
-                        Round Trip
-                      </label>
-                    </div>
+                    <label for="" class="control-label">Departure Date: &nbsp;   </label>
+                    <input type="date"  name="date" autocomplete="off" required>
+                    
                   </div>
                   <br>
-                  <div class="col-sm-3 offset-sm-5">
                     <button class="btn btn-block btn-sm btn-primary" type="submit">
-                      Find Flights</button>
-                  </div>
+                      Find Flights
+                    </button>
                 </div>
+              </span>
               </form>
             </div>
 

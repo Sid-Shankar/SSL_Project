@@ -41,12 +41,20 @@ $con = new mysqli("localhost","root","","airline_system");
 
   <!-- search flights css files and scripts -->
 
-  <link href="assets_searchflights/css/bootstrap.css" rel="stylesheet" />
-    <link href="assets_search_results/css/font-awesome.css" rel="stylesheet" />
-    <link href="assets_search_results/css/style.css" rel="stylesheet" />
+  <link href="assets_search_results_new/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets_search_results_new/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets_search_results_new/css/style.css" rel="stylesheet" />
 
   <!-- Template Main CSS File -->
   <link href="assets_welcome_page/css/style.css" rel="stylesheet">
+
+
+<!-- new files -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="assets_search_results_new/css/style.css">
 
 
   <style>
@@ -106,63 +114,31 @@ $con = new mysqli("localhost","root","","airline_system");
           <li><a href="index.php">Home</a></li>
           <li>Search results</li>
         </ol>
-        <h2>Search results ( Work in progress....) </h2>
+        <h2>Search results </h2>
 
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <section class="inner-page">
-      <div class="container">
-        <p>
-
-        </p>
-
-
-        <div class="container-fluid h-100">
-          <div class="row h-100 align-items-center justify-content-center text-center">
-            <div class="col-lg-10 align-self-end mb-4 page-title">
-              <h3> </h3>
-              <br>
-              
-
-
-<div class="content-wrapper">
-        <div class="container">
-              <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-head-line" style="font-weight: 900;
-    padding-bottom: 20px;
-    text-align:center;
-    text-transform: uppercase;
-    border-bottom: 1px solid #e7510c;
-    padding-bottom: 3px;
-    color: #e7510c;
-    font-size: 30px;
-    margin-bottom: 40px;
-    padding-right: 10px;">List of available flights</h1>
-                        <br>
-                    </div>
-                </div>
-                <div class="row" >
-            
-                <div class="col-md-12">
-                    <!--    Bordered Table  -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                          
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive table-bordered">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
+    <section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section" style="color:#ff1493;font-family: Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;border-bottom: 1px solid #ff1493;padding-bottom: 10px;">LIST OF AVAILABLE FLIGHTS</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="text-center mb-4">* Please scroll right to see more details</h4>
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+                          <th>#</th>
                                             <th>Flight no. </th>
                                             <th>Flight type </th>
                                             <th>Source</th>
                                              <th>Desination</th>
-                                             <th>D.O.J</th>
+                                             <th >D.O.J</th>
                                              <th>Departure time</th>
                                              <th>Arrival time</th>
                                              <th>Class</th>
@@ -171,9 +147,11 @@ $con = new mysqli("localhost","root","","airline_system");
                                              <th>Flight status</th>
                                              <th>Amount</th>
                                              <th>Discount</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                             <th>Action</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+
 <?php
 
 
@@ -230,43 +208,21 @@ else
 
 }?>
 
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                     <!--  End  Bordered Table  -->
-                </div>
-            </div>
+					    </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+      </section>
 
 
+      <script src="assets_search_results_new/js/jquery.min.js"></script>
+  <script src="assets_search_results_new/js/popper.js"></script>
+  <script src="assets_search_results_new/js/bootstrap.min.js"></script>
+  <script src="assets_search_results_new/js/main.js"></script>
 
-
-
-        </div>
-    </div>
- 
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets_search_results/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets_search_results/js/bootstrap.js"></script>
-
-
-
-              
-            </div>
-
-
-          </div>
-        </div>
-
-      </div>
-
-
-
-    </section>
 
   </main><!-- End #main -->
 

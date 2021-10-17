@@ -1,0 +1,1 @@
+*** manage_booked_flights is working fine with option to cancel or confirm a 'waiting' status ticket
