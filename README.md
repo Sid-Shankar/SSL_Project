@@ -8,3 +8,7 @@ UPDATES:
 
 13 Oct 2021:
 * Modified createdb.php to check for duplicate creation and insertion and included it in index.php 
+
+
+17 Oct 2021:
+* Added some admin features. Edit profile and update flight features are not yet complete.
