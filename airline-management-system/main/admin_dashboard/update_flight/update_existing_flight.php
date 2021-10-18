@@ -17,7 +17,7 @@ while($row=mysqli_fetch_array($sql)){
 <html>
 <head>
 <title>Add a new flight </TITLE>
-<link href="assets/css/style.css" type="text/css"
+<link href="assets/css/up_style.css" type="text/css"
 	rel="stylesheet" />
 <link href="assets/css/update_flight.css" type="text/css"
 	rel="stylesheet" />
