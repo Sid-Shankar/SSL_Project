@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 error_reporting(0);
 
@@ -13,7 +13,7 @@ if(isset($_GET['upd']))
               $flightid=$_GET['id'] ;
               $_SESSION['flight_id']=$flightid;
 
-              header("location: update_flight_navigation.php");
+              header("location: update_existing_flight.php");
               //mysqli_query($con,"delete from flights where id = '".$flightid."'");
                   $_SESSION['updmsg']="Message from server: Successfully updated flight details !";
 
