@@ -62,7 +62,7 @@ if (! empty($_POST["signup-btn"])) {
 							<div class="form-label">
 								Type of flight<span class="required error" id="type_of_flight_info"></span>
 							</div>
-							<input class="input-box-330" type="text" name="type_of_flight"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." name="type_of_flight"
 								id="type_of_flight">
 						</div>
 					</div>
@@ -80,7 +80,7 @@ if (! empty($_POST["signup-btn"])) {
 							<div class="form-label">
 								Source<span class="required error" id="source_info"></span>
 							</div>
-							<input class="input-box-330" type="text" name="source" id="source">
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." name="source" id="source">
 						</div>
 					</div>
 					<div class="row">
@@ -89,7 +89,7 @@ if (! empty($_POST["signup-btn"])) {
 								Destination<span class="required error"
 									id="destination_info"></span>
 							</div>
-							<input class="input-box-330" type="text"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required."
 								name="destination" id="destination">
 						</div>
 					</div>
@@ -98,7 +98,7 @@ if (! empty($_POST["signup-btn"])) {
 							<div class="form-label">
 								Intermediate Stops<span class="required error" id="intermediate_stops_info"></span>
 							</div>
-							<input class="input-box-330" type="text"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z0-9/-]+" maxlength="50" title="Max 50 characters with / or - allowed are required."
 								name="intermediate_stops" id="intermediate_stops">
 						</div>
 					</div>
@@ -138,7 +138,7 @@ if (! empty($_POST["signup-btn"])) {
 								Type of class<span class="required error"
 									id="type_of_class_info"></span>
 							</div>
-							<input class="input-box-330" type="text"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required."
 								name="type_of_class" id="type_of_class">
 						</div>
 					</div>
@@ -148,7 +148,7 @@ if (! empty($_POST["signup-btn"])) {
 								Meal<span class="required error"
 									id="meal_info"></span>
 							</div>
-							<input class="input-box-330" type="text"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z/-]+" maxlength="50" title="Max 50  characters without digits and / or - allowed are required."
 								name="meal" id="meal">
 						</div>
 					</div>
@@ -165,7 +165,7 @@ if (! empty($_POST["signup-btn"])) {
 					<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Discount<span class="required error"
+								Discount (in %)<span class="required error"
 									id="discount_info"></span>
 							</div>
 							<input class="input-box-330" type="number"
@@ -178,7 +178,7 @@ if (! empty($_POST["signup-btn"])) {
 								Flight status<span class="required error"
 									id="flight_status_info"></span>
 							</div>
-							<input class="input-box-330" type="text"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z/-]+" maxlength="50" title="Max 50  characters without digits and / or - allowed are required."
 								name="flight_status" id="flight_status">
 						</div>
 					</div>

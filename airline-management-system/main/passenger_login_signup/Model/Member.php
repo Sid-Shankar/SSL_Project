@@ -113,7 +113,7 @@ class Member
                 $hashedPassword = password_hash($_POST["signup-password"], PASSWORD_DEFAULT);
             }
             $query = 'INSERT INTO passenger_info (passenger_id, pass_name, password, email_id, passport_no) VALUES (?, ?, ?, ?, ?)';
-            $paramType = 'ssssi';
+            $paramType = 'sssss';
             $paramValue = array(
                 $_POST["passenger_id"],
                 $_POST["pass_name"],
@@ -178,5 +178,13 @@ class Member
             $loginStatus = "Invalid Passenger ID or password.";
             return $loginStatus;
         }
+
+
+
+        
     }
+
+
+
+
 }

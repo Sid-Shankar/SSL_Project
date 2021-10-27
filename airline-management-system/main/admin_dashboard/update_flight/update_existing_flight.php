@@ -16,7 +16,7 @@ while($row=mysqli_fetch_array($sql)){
 
 <html>
 <head>
-<title>Add a new flight </TITLE>
+<title>Update existing flight </TITLE>
 <link href="assets/css/up_style.css" type="text/css"
 	rel="stylesheet" />
 <link href="assets/css/update_flight.css" type="text/css"
@@ -67,7 +67,7 @@ while($row=mysqli_fetch_array($sql)){
 							<div class="form-label">
 								Type of flight<span class="required error" id="type_of_flight_info"></span>
 							</div>
-							<input class="input-box-330" type="text" name="type_of_flight"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required."  name="type_of_flight"
 								id="type_of_flight" value="<?php echo $row['type_of_flight'];?>" >
 						</div>
 					</div>
@@ -85,7 +85,7 @@ while($row=mysqli_fetch_array($sql)){
 							<div class="form-label">
 								Source<span class="required error" id="source_info"></span>
 							</div>
-							<input class="input-box-330" type="text" name="source" id="source" value="<?php echo $row['source'];?>">
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required."  name="source" id="source" value="<?php echo $row['source'];?>">
 						</div>
 					</div>
 					<div class="row">
@@ -94,7 +94,7 @@ while($row=mysqli_fetch_array($sql)){
 								Destination<span class="required error"
 									id="destination_info"></span>
 							</div>
-							<input class="input-box-330" type="text"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required."
 								name="destination" id="destination" value="<?php echo $row['destination'];?>">
 						</div>
 					</div>
@@ -103,7 +103,7 @@ while($row=mysqli_fetch_array($sql)){
 							<div class="form-label">
 								Intermediate Stops<span class="required error" id="intermediate_stops_info"></span>
 							</div>
-							<input class="input-box-330" type="text"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z0-9/-]+" maxlength="50" title="Max 50 characters with / or - allowed are required."
 								name="intermediate_stops" id="intermediate_stops" value="<?php echo $row['intermediate_stops'];?>">
 						</div>
 					</div>
@@ -143,7 +143,7 @@ while($row=mysqli_fetch_array($sql)){
 								Type of class<span class="required error"
 									id="type_of_class_info"></span>
 							</div>
-							<input class="input-box-330" type="text"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required."
 								name="type_of_class" id="type_of_class" value="<?php echo $row['type_of_class'];?>">
 						</div>
 					</div>
@@ -153,7 +153,7 @@ while($row=mysqli_fetch_array($sql)){
 								Meal<span class="required error"
 									id="meal_info"></span>
 							</div>
-							<input class="input-box-330" type="text"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z/-]+" maxlength="50" title="Max 50  characters without digits and / or - allowed are required."
 								name="meal" id="meal" value="<?php echo $row['meal'];?>">
 						</div>
 					</div>
@@ -170,7 +170,7 @@ while($row=mysqli_fetch_array($sql)){
 					<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Discount<span class="required error"
+								Discount (in %)<span class="required error"
 									id="discount_info"></span>
 							</div>
 							<input class="input-box-330" type="number"
@@ -183,7 +183,7 @@ while($row=mysqli_fetch_array($sql)){
 								Flight status<span class="required error"
 									id="flight_status_info"></span>
 							</div>
-							<input class="input-box-330" type="text"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z/-]+" maxlength="50" title="Max 50  characters without digits and / or - allowed are required."
 								name="flight_status" id="flight_status" value="<?php echo $row['flight_status'];?>">
 						</div>
 					</div>
@@ -192,7 +192,7 @@ while($row=mysqli_fetch_array($sql)){
 							id="signup-btn" value="Update Flight">
 					</div>
 					<div class="row">
-					<p>Want to go back to dashboard? <a href="../admin_dashboard.php">Go to dashboard</a>.</p>
+					<p>Go back to previous page? <a href="update_flight.php">Go back</a>.</p>
 					</div>
 
 				</form>

@@ -22,7 +22,7 @@ if(isset($_GET['confirm']))
       {       
               $booked_flightid=$_GET['id'] ;
               mysqli_query($con,"update booked_flights set reservation_status= 'cancelled' where id = '".$booked_flightid."'");
-                  $_SESSION['updmsg']="Message from server: Reservation status successfully changed to CANCELLED !";
+                  $_SESSION['updmsg']="  Message from server: Reservation status successfully changed to CANCELLED !";
 
               
       }
@@ -42,6 +42,29 @@ if(isset($_GET['confirm']))
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
+
+<style>
+    .border-box {
+	border: 1px solid;
+	border-color: #9a9a9a;
+	background: #fff;
+	border-radius: 4px;
+	padding: 10px;
+	width: 1000px;
+	margin: 50px auto;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 30px;
+    background-image: url('assets/img/slide2.jpg');
+           background-repeat: no-repeat;
+           background-attachment: fixed;
+           background-size: cover;
+    }
+
+</style>
+
 </head>
 
 <body>
@@ -49,6 +72,7 @@ if(isset($_GET['confirm']))
 
     <div class="content-wrapper">
         <div class="container">
+            <div class="border-box">
               <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-head-line" style="font-weight: 900;
@@ -65,7 +89,7 @@ if(isset($_GET['confirm']))
                 </div>
                 <div class="row" >
                  
-                <font color="purple" align="center"><?php echo htmlentities($_SESSION['updmsg']);?><?php echo htmlentities($_SESSION['updmsg']="");?></font>
+                <font color="purple" align="center">&nbsp; &nbsp; &nbsp;<?php echo htmlentities($_SESSION['updmsg']);?><?php echo htmlentities($_SESSION['updmsg']="");?></font>
                 <div class="col-md-12">
                     <!--    Bordered Table  -->
                     <div class="panel panel-default">
@@ -139,7 +163,7 @@ $cnt++;
 
 
 
-
+      </div>
         </div>
     </div>
 

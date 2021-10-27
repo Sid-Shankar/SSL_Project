@@ -28,6 +28,39 @@ if (! empty($_POST["signup-btn"])) {
            background-size: cover; 
         }
       
+						
+.ams-container input[type=submit] {
+	padding: 8px 0px;
+	font-size: 1em;
+	cursor: pointer;
+	border-radius: 3px;
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #1a41f3;
+	border-color: #1a41f3 #1a41f3 #1a41f3;
+}
+
+
+.ams-container button{
+	padding: 8px 0px;
+	font-size: 1em;
+	cursor: pointer;
+	border-radius: 3px;
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #EA401B ;
+	border-color: #EA401B  #EA401B  #EA401B ;
+}
+
+.ams-container input[type=submit]:hover {
+	background-color: #1a41f3;
+}
+
+.ams-container button {
+	background-color: #EA401B ;
+}
+
+
  </style>
 
 	</head>
@@ -62,7 +95,7 @@ if (! empty($_POST["signup-btn"])) {
 							<div class="form-label">
 								Passenger ID<span class="required error" id="passenger_id_info"></span>
 							</div>
-							<input class="input-box-330" type="text" name="passenger_id"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z0-9]+" maxlength="50" title="Max 50 alpha-numeric characters are required." name="passenger_id"
 								id="passenger_id">
 						</div>
 					</div>
@@ -71,7 +104,7 @@ if (! empty($_POST["signup-btn"])) {
 							<div class="form-label">
 								Name<span class="required error" id="pass_name_info"></span>
 							</div>
-							<input class="input-box-330" type="text" name="pass_name"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." name="pass_name"
 								id="pass_name">
 						</div>
 					</div>
@@ -86,11 +119,11 @@ if (! empty($_POST["signup-btn"])) {
 					<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Passport Number<span class="required error"
+								Passport Number (Max 8 characters)<span class="required error"
 									id="passport_no_info"></span>
 							</div>
-							<input class="input-box-330" type="number"
-								name="passport_no" id="passport_no">
+							<input class="input-box-330" type="text"
+							pattern="[a-zA-Z0-9]+"	maxlength="8" title="Passport length should not be greater than 8 aplha-numeric characters." name="passport_no" id="passport_no">
 						</div>
 					</div>
 					<div class="row">

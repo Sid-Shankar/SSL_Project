@@ -1,5 +1,6 @@
 <?php 
 include "createdb.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ include "createdb.php";
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons are not needed (that logo on tab name)-->
+  
   
 
   <!-- Google Fonts -->
@@ -36,21 +37,70 @@ include "createdb.php";
 
   <style>
 
-    #header .logo {
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: rgba(17, 88, 209, 0.9);
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid rgba(17, 88, 209, 0.9);
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#header .logo {
       font-size: 20px;
       margin: 0;
       padding: 0;
       line-height: 1;
       font-weight: 450;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       text-transform: uppercase;
     }
-
+    
     #header .logo img {
-      max-height: 60px;
+      max-height: 40px;
     }
+    
 
-  </style>
+    .col-sm-3 {
+    width: 100%;
+  }
+
+    </style>
 
 </head>
 
@@ -61,7 +111,7 @@ include "createdb.php";
     <div class="container d-flex align-items-center">
 
       <a href="index.php" class="logo me-auto"><img src="assets_welcome_page/img/iitdh_logo.png" alt="" class="img-fluid"></a>
-      <h1 class="logo me-auto"><a href="index.php">Airline Mgmt System</a></h1>
+      <h1 class="logo me-auto"><a href="index.php">Airline Management System</a></h1>
 
 
       <nav id="navbar" class="navbar">
@@ -304,9 +354,9 @@ include "createdb.php";
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets_welcome_page/img/clients/usericon-resize.png" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Person 1</h4>
+                <h4>Raghav Magazine</h4>
                 <span>Web Developer</span>
                 <p>200030041</p>
                 <div class="social">
@@ -321,9 +371,9 @@ include "createdb.php";
 
           <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
-              <div class="pic"><img src="" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets_welcome_page/img/clients/usericon-resize.png" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Person 2</h4>
+                <h4>Siddharth Shankar</h4>
                 <span>Web developer</span>
                 <p>200030056</p>
                 <div class="social">
@@ -338,10 +388,10 @@ include "createdb.php";
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
-              <div class="pic"><img src="" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets_welcome_page/img/clients/usericon-resize.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Person 3</h4>
-                <span>Web developer</span>
+                <span>Tarun Saini</span>
                 <p>200010051</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
@@ -406,7 +456,7 @@ include "createdb.php";
               <h3>Diamond Plan</h3>
               <h4>Rs.999<span>per month</span></h4>
               <ul>
-                <li><i class="bx bx-check"></i> 10% Cancellation charges applicable for any booking</li>
+                <li class="na"><i class="bx bx-x"></i> 10% Cancellation charges applicable for any booking</li>
                 <li><i class="bx bx-check"></i> Customer Support 24/7</li>
                 <li><i class="bx bx-check"></i>Online Check-in facility</li>
                 <li><i class="bx bx-check"></i> <span>Receive priority on Customer Support </span></li>
@@ -516,7 +566,7 @@ include "createdb.php";
                 <div class="row">
                   <div class="form-group col-md-6" style="text-align: left;">
                     <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control" id="name" required>
+                    <input type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." name="name" class="form-control" id="name" required>
                   </div>
                   <div class="form-group " style="text-align: left;">
                     <label for="name">Email</label>
@@ -525,7 +575,7 @@ include "createdb.php";
                 </div>
                 <div class="form-group" style="text-align: left;">
                   <label for="name">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject" required>
+                  <input type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." class="form-control" name="subject" id="subject" required>
                 </div>
                 <div class="form-group" style="text-align: left;">
                   <label for="name">Your Message</label>

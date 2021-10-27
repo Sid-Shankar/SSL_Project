@@ -61,14 +61,14 @@ input[type=text].ams-input, .ams-container input,
 	font-size: 1em;
 	cursor: pointer;
 	border-radius: 3px;
-	color: #565656;
+	color: #ffffff;
 	font-weight: bold;
-	background-color: #ffc72c;
-	border-color: #ffd98e #ffbe3d #de9300;
+	background-color: #1a41f3;
+	border-color: #1a41f3 #1a41f3 #1a41f3;
 }
 
 .ams-container button, .ams-container input[type=submit]:hover {
-	background-color: #f7c027;
+	background-color: #1a41f3;
 }
 
 .ams-container button:focus {

@@ -39,11 +39,6 @@ $con = new mysqli("localhost","root","","airline_system");
   <link href="assets_welcome_page/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets_welcome_page/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- search flights css files and scripts -->
-
-  <link href="assets_search_results_new/css/bootstrap.css" rel="stylesheet" />
-    <link href="assets_search_results_new/css/font-awesome.css" rel="stylesheet" />
-    <link href="assets_search_results_new/css/style.css" rel="stylesheet" />
 
   <!-- Template Main CSS File -->
   <link href="assets_welcome_page/css/style.css" rel="stylesheet">
@@ -54,27 +49,75 @@ $con = new mysqli("localhost","root","","airline_system");
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="assets_search_results_new/css/style.css">
+	<link rel="stylesheet" href="assets_search_results/css/style.css">
 
 
   <style>
 
-    #header .logo {
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: rgba(17, 88, 209, 0.9);
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid rgba(17, 88, 209, 0.9);
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#header .logo {
       font-size: 20px;
       margin: 0;
       padding: 0;
       line-height: 1;
       font-weight: 450;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       text-transform: uppercase;
     }
-
+    
     #header .logo img {
       max-height: 40px;
     }
+    
 
-  </style>
+    .col-sm-3 {
+    width: 100%;
+  }
 
+    </style>
 
 </head>
 
@@ -85,7 +128,7 @@ $con = new mysqli("localhost","root","","airline_system");
     <div class="container d-flex align-items-center">
       
     <a href="index.php" class="logo me-auto"><img src="assets_welcome_page/img/iitdh_logo.png" alt="" class="img-fluid"></a>
-      <h1 class="logo me-auto"><a href="index.php">Airline Mgmt System</a></h1>
+      <h1 class="logo me-auto"><a href="index.php">Airline Management System</a></h1>
       
 
       <nav id="navbar" class="navbar">
@@ -123,12 +166,12 @@ $con = new mysqli("localhost","root","","airline_system");
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section" style="color:#ff1493;font-family: Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;border-bottom: 1px solid #ff1493;padding-bottom: 10px;">LIST OF AVAILABLE FLIGHTS</h2>
+					<h2 class="heading-section" style="color:#15F10A ;font-family: Verdana, Geneva, Tahoma, sans-serif ;font-weight: bold;border-bottom: 1px solid #ff1493;padding-bottom: 10px;">LIST OF AVAILABLE FLIGHTS</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h4 class="text-center mb-4">* Please scroll right to see more details</h4>
+					<h4 class="text-center mb-4">* Please scroll right to see more flight details</h4>
 					<div class="table-wrap">
 						<table class="table">
 					    <thead class="thead-primary">
@@ -138,15 +181,15 @@ $con = new mysqli("localhost","root","","airline_system");
                                             <th>Flight type </th>
                                             <th>Source</th>
                                              <th>Desination</th>
-                                             <th >D.O.J</th>
+                                             <th >Date of Journey</th>
                                              <th>Departure time</th>
                                              <th>Arrival time</th>
                                              <th>Class</th>
                                              <th>Meal</th>
-                                            <th>intermediate_stops</th>
+                                            <th>Intermediate Stops</th>
                                              <th>Flight status</th>
                                              <th>Amount</th>
-                                             <th>Discount</th>
+                                             <th>Discount (in %)</th>
                                              <th>Action</th>
 					      </tr>
 					    </thead>
@@ -204,7 +247,7 @@ $cnt++;
 }
 else
 {
-   echo"<h2>Sorry ! No flights are available as per your search . <h2><br>" ;
+   echo '<center><h2 style="color:#EE2212 ;"><b>Sorry ! No flights are available as per your search . <h2></b></center><br>' ;
 
 }?>
 
@@ -218,10 +261,10 @@ else
       </section>
 
 
-      <script src="assets_search_results_new/js/jquery.min.js"></script>
-  <script src="assets_search_results_new/js/popper.js"></script>
-  <script src="assets_search_results_new/js/bootstrap.min.js"></script>
-  <script src="assets_search_results_new/js/main.js"></script>
+      <script src="assets_search_results/js/jquery.min.js"></script>
+  <script src="assets_search_results/js/popper.js"></script>
+  <script src="assets_search_results/js/bootstrap.min.js"></script>
+  <script src="assets_search_results/js/main.js"></script>
 
 
   </main><!-- End #main -->
@@ -284,7 +327,7 @@ else
 
 
 
-  <div id="preloader"></div>
+  
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
 

@@ -47,8 +47,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper{
-            font: 14px sans-serif
-            width: 360px; padding: 20px; }
+            font: 14px sans-serif;
+            width: 900px; padding: 20px;
+          text-align: center; }
 
     </style>
 
@@ -57,21 +58,70 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
   <style>
 
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: rgba(17, 88, 209, 0.9);
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid rgba(17, 88, 209, 0.9);
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 #header .logo {
-  font-size: 20px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 450;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
+      font-size: 20px;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-weight: 450;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    #header .logo img {
+      max-height: 40px;
+    }
+    
 
-#header .logo img {
-  max-height: 40px;
-}
+    .col-sm-3 {
+    width: 100%;
+  }
 
-</style>
+    </style>
 
 </head>
 
@@ -82,15 +132,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     <div class="container d-flex align-items-center">
   
     <a href="index.php" class="logo me-auto"><img src="assets_welcome_page/img/iitdh_logo.png" alt="" class="img-fluid"></a>
-      <h1 class="logo me-auto"><a href="index.php">Airline Mgmt System</a></h1>
+      <h1 class="logo me-auto"><a href="index.php">Airline Management System</a></h1>
 
      
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
+          <li><a class="nav-link scrollto " href="index.php">Home</a></li>
           <li><a class="nav-link scrollto" href="index.php#about">About Us</a></li>
-          <li><a class="nav-link scrollto" href="process_login_signup.php">Book now</a></li>
+          <li><a class="nav-link scrollto active" href="process_login_signup.php">Book now</a></li>
           <li><a class="nav-link   scrollto" href="search_flights.html">Search flights</a></li>
           <li><a class="nav-link scrollto" href="index.php#contact">Contact Us</a></li>
           <li><a class="nav-link scrollto" href="index.php#faq">FAQ</a></li>
@@ -140,6 +190,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 <input type="submit" class="btn btn-warning" value="Admin Login" name="admin_login" ><br>
             </div>
         </form>
+        <br>
+<br>
+<br> <br>
+<h2 style="color: rgb(216, 87, 13);"><u><b>Note:</b></u>&nbsp;It is mandatory for passengers to login/signup in order to book tickets.</h2>
     </div>
 
             </div>
@@ -212,7 +266,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     </div>
   </footer><!-- End Footer -->
 
-  <div id="preloader"></div>
+  
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
 

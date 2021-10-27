@@ -16,6 +16,7 @@ if (! empty($_POST["login-btn"])) {
 	rel="stylesheet" />
 <link href="assets/css/admin_login_signup.css" type="text/css"
 	rel="stylesheet" />
+	
 <script src="vendor/jquery/jquery-3.3.1.js" type="text/javascript"></script>
 
 <style>
@@ -27,6 +28,38 @@ if (! empty($_POST["login-btn"])) {
            background-size: cover; 
         }
       
+		
+.ams-container input[type=submit] {
+	padding: 8px 0px;
+	font-size: 1em;
+	cursor: pointer;
+	border-radius: 3px;
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #ffc72c;
+	border-color: #ffd98e #ffbe3d #de9300;
+}
+
+
+.ams-container button{
+	padding: 8px 0px;
+	font-size: 1em;
+	cursor: pointer;
+	border-radius: 3px;
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #037DFF   ;
+	border-color: #037DFF  #037DFF   #037DFF   ;
+}
+
+.ams-container input[type=submit]:hover {
+	background-color: #f7c027;
+}
+
+.ams-container button {
+	background-color: #037DFF   ;
+}
+
  </style>
 
 	</head>

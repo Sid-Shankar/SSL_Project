@@ -33,6 +33,30 @@ if(isset($_GET['del']))
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
+    
+    <style>
+    .border-box {
+	border: 1px solid;
+	border-color: #9a9a9a;
+	background: #fff;
+	border-radius: 4px;
+	padding: 10px;
+	width: 1000px;
+	margin: 50px auto;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 30px;
+    background-image: url('assets/img/slide2.jpg');
+           background-repeat: no-repeat;
+           background-attachment: fixed;
+           background-size: cover;
+    }
+
+</style>
+
+
 </head>
 
 <body>
@@ -40,6 +64,7 @@ if(isset($_GET['del']))
 
     <div class="content-wrapper">
         <div class="container">
+        <div class="border-box">
               <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-head-line" style="font-weight: 900;
@@ -56,7 +81,7 @@ if(isset($_GET['del']))
                 </div>
                 <div class="row" >
                  
-                <font color="purple" align="center"><?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?></font>
+                <font color="purple" align="center">&nbsp; &nbsp; &nbsp;<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?></font>
                 <div class="col-md-12">
                     <!--    Bordered Table  -->
                     <div class="panel panel-default">
@@ -99,7 +124,7 @@ while($row=mysqli_fetch_array($sql))
                                             <td><?php echo htmlentities($row['passport_no']);?></td>
                                             <td>
                                       
-<a href="delete_passenger_record.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')">
+<a href="view_delete_passenger_record.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')">
                                             <button class="btn btn-danger">Delete</button>
 </a>
                                             </td>
@@ -121,7 +146,7 @@ $cnt++;
 
 
 
-
+      </div>
         </div>
     </div>
 
