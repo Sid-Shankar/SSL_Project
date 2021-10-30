@@ -1,7 +1,6 @@
 
 <?php
 session_start();
-$_SESSION['passenger_id'] = "sid123";
 $passenger_id=$_SESSION['passenger_id'];
 $mysqli = new mysqli("localhost","root","","airline_system");
 $sql = "SELECT * FROM airline_system.flights
