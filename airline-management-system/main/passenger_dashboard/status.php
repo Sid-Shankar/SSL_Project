@@ -55,18 +55,24 @@ $result = $mysqli->query($sql);
                     <a href="ticket.php" ><span class="las la-ticket-alt"></span>
                     <span>Book Ticket</span></a>
                 </li>
-                
+                <br/>
+                <li>
+                    <a href="print_ticket.php" ><span class="las la-clipboard-list"></span>
+                    <span>Print Ticket</span></a>
+                </li>
+                <br/>
                 <li>
                     <a href="" class="active"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>
                 </li>
+                <br>
                 <li>
                     <a href="profile.php" ><span class="las la-user-circle"></span>
                     <span>Profile</span></a>
                 </li>
                 <br/>
                 <li>
-                    <a href="passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
+                    <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>
@@ -89,12 +95,14 @@ $result = $mysqli->query($sql);
         if(mysqli_num_rows($result)!=0)
         {
         ?>               
+       
         <button id="myButton" type="button" class="btn btn-danger">Cancel Booking</button>
         <script type="text/javascript">
          document. getElementById("myButton"). onclick = function () 
          {
          location. href = "delete_ticket.php";
          };
+
         </script>
         <?php
         }
@@ -105,6 +113,7 @@ $result = $mysqli->query($sql);
          <thead>
           <tr>
           <th scope="col">Flight Number</th>
+          <th scope="col">Airline</th>
           <th scope="col">From</th>
           <th scope="col">To</th>
           <th scope="col">Date</th>
@@ -121,6 +130,7 @@ $result = $mysqli->query($sql);
           <tbody>
           <tr>
           <td><?php echo $rows['flight_no'];?></td>
+          <td><?php echo $rows['airline'];?></td>
           <td><?php echo $rows['source'];?></td>
           <td><?php echo $rows['destination'];?></td>
           <td><?php echo $rows['date_of_journey'];?></td>

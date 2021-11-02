@@ -5,12 +5,14 @@
         $name = $_POST['name'];
         $email =  $_POST['email'];
         $password = $_POST['password'];
+        //storing password in hashed format for security reasons
+        $hashed_password= password_hash($password, PASSWORD_DEFAULT);
         $passport_number = $_POST['passport_number'];
         session_start();
         $passenger_id = $_SESSION['passenger_id'];
         
         $sql = "UPDATE airline_system.passenger_info
-        SET password='$password',pass_name='$name',email_id='$email',passport_no='$passport_number'
+        SET password='$hashed_password',pass_name='$name',email_id='$email',passport_no='$passport_number'
         WHERE passenger_id='$passenger_id'";
         
 

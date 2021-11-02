@@ -56,6 +56,7 @@ class Member
             
             $flightno = $_POST["flight_no"];
             $typeofflight =$_POST["type_of_flight"];
+            $airline=$_POST["airline"];
             $source=$_POST["source"];
             $destination=$_POST["destination"];
             $typeofclass=$_POST["type_of_class"];
@@ -69,12 +70,13 @@ class Member
            $flightstatus=$_POST["flight_status"];
 
 
-            $query = 'INSERT INTO flights (type_of_flight,flight_no,source,destination,intermediate_stops,date_of_journey,departure_time,arrival_time,type_of_class,meal,amount,discount,flight_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            $query = 'INSERT INTO flights (type_of_flight,flight_no,airline,source,destination,intermediate_stops,date_of_journey,departure_time,arrival_time,type_of_class,meal,amount,discount,flight_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
-            $paramType = 'sissssssssiis';
+            $paramType = 'sisssssssssiis';
             $paramValue = array(
                 $typeofflight,
                 $flightno,
+                $airline,
                 $source,
                 $destination,
                 $intermediatestops,

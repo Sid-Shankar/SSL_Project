@@ -104,6 +104,7 @@ body {
                                             <th>#</th>
                                             <th>Type of flight</th>
                                             <th>Flight no. </th>
+                                            <th>Airline</th>
                                             <th>Source </th>
                                             <th>Destination</th>
                                             <th>Intermediate stops</th>
@@ -131,7 +132,7 @@ while($row=mysqli_fetch_array($sql))
                                         <td><?php echo $cnt;?></td>
                                         <td><?php echo htmlentities($row['type_of_flight']);?></td>
                                               <td><?php echo htmlentities($row['flight_no']);?></td>
-                                            
+                                              <td><?php echo htmlentities($row['airline']);?></td>
                                             <td><?php echo htmlentities($row['source']);?></td>
                                             <td><?php echo htmlentities($row['destination']);?></td>
                                             <td><?php echo htmlentities($row['intermediate_stops']);?></td>

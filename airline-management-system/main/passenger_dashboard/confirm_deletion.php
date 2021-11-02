@@ -70,7 +70,7 @@
                 </li>
                 <br/>
                 <li>
-                    <a href="passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
+                    <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>

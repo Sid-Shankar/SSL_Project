@@ -44,6 +44,11 @@
                 </li>
                 <br/>
                 <li>
+                    <a href="print_ticket.php" ><span class="las la-clipboard-list"></span>
+                    <span>Print Ticket</span></a>
+                </li>
+                <br/>
+                <li>
                     <a href="status.php"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>
                 </li>
@@ -54,7 +59,7 @@
                 </li>
                 <br/>
                 <li>
-                    <a href="passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
+                    <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>
@@ -75,15 +80,15 @@
             <div class="form-row">   
                 <div class="form-group col-md-6">
                 <label for="exampleInputPassword1">From</label>
-                <input type="name" class="form-control" name="start" aria-describedby="emailHelp" placeholder="Enter Starting Location">
+                <input type="name" class="form-control" name="start" aria-describedby="emailHelp" placeholder="Enter Starting Location" required>
                 </div>
                 <div class="form-group col-md-6">
                 <label for="exampleInputPassword1">To</label>
-                <input type="name" class="form-control" name="destination" aria-describedby="emailHelp" placeholder="Enter Destination">
+                <input type="name" class="form-control" name="destination" aria-describedby="emailHelp" placeholder="Enter Destination" required>
                 </div>
                 <div class="form-group col-md-6">
                 <label for="exampleInputPassword1">Date of Journey</label>
-                <input type="date" class="form-control" name="date" aria-describedby="emailHelp">
+                <input type="date" class="form-control" name="date" aria-describedby="emailHelp" required>
                 </div>
             </div>
             <button  type="submit" class="btn btn-primary">Search Flights</button>

@@ -8,16 +8,6 @@ $con = new mysqli("localhost","root","","airline_system");
 
 {
 
-if(isset($_GET['del']))
-      {       
-              $flightid=$_GET['id'] ;
-              mysqli_query($con,"delete from flights where id = '".$flightid."'");
-                  $_SESSION['delmsg']="Message from server: Flight successfully removed from flights table !";
-
-             // ** Note: We also need to change flight_status in booked_flights of this deleted flight
-             // code for that to be written here     
-      }
-
 
 ?>
 
@@ -29,34 +19,32 @@ if(isset($_GET['del']))
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Admin | View/Remove a flight</title>
+    <title>Admin | Manage booked flights</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
 
-
-    <style>
+<style>
     .border-box {
 	border: 1px solid;
 	border-color: #9a9a9a;
 	background: #fff;
 	border-radius: 4px;
 	padding: 10px;
-	width: 1200px;
+	width: 1000px;
 	margin: 50px auto;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 30px;
-    background-image: url('assets/img/slide1.jpg');
+    background-image: url('assets/img/slide3.jpg');
            background-repeat: no-repeat;
            background-attachment: fixed;
            background-size: cover;
     }
 
 </style>
-
 
 </head>
 
@@ -77,12 +65,11 @@ body {
     color: #e7510c;
     font-size: 30px;
     margin-bottom: 40px;
-    padding-right: 10px;">List&nbsp; of&nbsp; available&nbsp; flights</h1>
+    padding-right: 10px;">List&nbsp; of &nbsp;Booked&nbsp; Flight&nbsp; Tickets</h1>
                     </div>
                 </div>
                 <div class="row" >
                  
-                <font color="purple" align="center">&nbsp; &nbsp; &nbsp;<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?></font>
                 <div class="col-md-12">
                     <!--    Bordered Table  -->
                     <div class="panel panel-default">
@@ -101,26 +88,19 @@ body {
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Type of flight</th>
-                                            <th>Flight no. </th>
+                                            <th>Flight no.</th>
                                             <th>Airline</th>
-                                            <th>Source </th>
-                                            <th>Destination</th>
-                                            <th>Intermediate stops</th>
-                                            <th>Date of journey</th>
-                                            <th>Departure time</th>
-                                            <th>Arrival time</th>
-                                            <th>Type of class</th>
-                                            <th>Meal</th>
-                                            <th>Amount</th>
-                                            <th>Discount</th>
-                                            <th>Flight status</th>
-                                            <th>Action</th>
+                                            <th>Passenger ID</th>
+                                            <th>Passenger name </th>
+                                            <th>Passport No. </th>
+                                            <th>Fare paid</th>
+                                            <th>Travellers count</th>
+                                            <th>Reservation status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 <?php
-$sql=mysqli_query($con,"select * from flights");
+$sql=mysqli_query($con,"select * from booked_flights");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
@@ -129,28 +109,14 @@ while($row=mysqli_fetch_array($sql))
 
                                         <tr>
                                         <td><?php echo $cnt;?></td>
-                                        <td><?php echo htmlentities($row['type_of_flight']);?></td>
                                               <td><?php echo htmlentities($row['flight_no']);?></td>
                                               <td><?php echo htmlentities($row['airline']);?></td>
-                                            <td><?php echo htmlentities($row['source']);?></td>
-                                            <td><?php echo htmlentities($row['destination']);?></td>
-                                            <td><?php echo htmlentities($row['intermediate_stops']);?></td>
-                                             <td><?php echo htmlentities($row['date_of_journey']);?></td>
-                                             <td><?php echo htmlentities($row['departure_time']);?></td>
-                                             <td><?php echo htmlentities($row['arrival_time']);?></td>
-                                             <td><?php echo htmlentities($row['type_of_class']);?></td>
-                                             <td><?php echo htmlentities($row['meal']);?></td>
-                                            
-                                             
-                                             <td><?php echo htmlentities($row['amount']);?></td>
-                                             <td><?php echo htmlentities($row['discount']);?></td>
-                                             <td><?php echo htmlentities($row['flight_status']);?></td>
-                                            <td>
-                                      
-<a href="remove_flight.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to remove?')">
-                                            <button class="btn btn-success">Remove</button>
-</a>
-                                            </td>
+                                              <td><?php echo htmlentities($row['passenger_id']);?></td>
+                                            <td><?php echo htmlentities($row['pass_name']);?></td>
+                                            <td><?php echo htmlentities($row['passport_no']);?></td>
+                                            <td><?php echo htmlentities($row['fare_paid']);?></td>
+                                            <td><?php echo htmlentities($row['passenger_count']);?></td>
+                                            <td><?php echo htmlentities($row['reservation_status']);?></td>
                                             
                                         </tr>
 <?php 
@@ -170,7 +136,7 @@ $cnt++;
 
 
 
-            </div>
+      </div>
         </div>
     </div>
 

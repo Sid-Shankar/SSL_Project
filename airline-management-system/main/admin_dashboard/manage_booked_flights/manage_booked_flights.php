@@ -109,9 +109,12 @@ body {
                                         <tr>
                                             <th>#</th>
                                             <th>Flight no.</th>
+                                            <th>Airline</th>
                                             <th>Passenger ID</th>
                                             <th>Passenger name </th>
+                                            <th>Passport No. </th>
                                             <th>Fare paid</th>
+                                            <th>Travellers count</th>
                                             <th>Current Reservation status</th>
                                             <th colspan="2">Change Reservation status</th>
                                         </tr>
@@ -128,9 +131,12 @@ while($row=mysqli_fetch_array($sql))
                                         <tr>
                                         <td><?php echo $cnt;?></td>
                                               <td><?php echo htmlentities($row['flight_no']);?></td>
+                                              <td><?php echo htmlentities($row['airline']);?></td>
                                               <td><?php echo htmlentities($row['passenger_id']);?></td>
                                             <td><?php echo htmlentities($row['pass_name']);?></td>
+                                            <td><?php echo htmlentities($row['passport_no']);?></td>
                                             <td><?php echo htmlentities($row['fare_paid']);?></td>
+                                            <td><?php echo htmlentities($row['passenger_count']);?></td>
                                             <td><?php echo htmlentities($row['reservation_status']);?></td>
                                             <td>
                                       

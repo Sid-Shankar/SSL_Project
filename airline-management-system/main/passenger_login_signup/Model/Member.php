@@ -172,7 +172,7 @@ class Member
             // sign out option in user dashboard will be taken care by logout.php in this folder
 
             session_write_close();
-            $url = "../passenger_dashboard/passenger_dashboard.php";
+            $url = "../passenger_dashboard/index.php";
             header("Location: $url");
         } else if ($loginPassword == 0) {
             $loginStatus = "Invalid Passenger ID or password.";

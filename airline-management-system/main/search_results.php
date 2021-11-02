@@ -179,6 +179,7 @@ $con = new mysqli("localhost","root","","airline_system");
                           <th>#</th>
                                             <th>Flight no. </th>
                                             <th>Flight type </th>
+                                            <th>Airline</th>
                                             <th>Source</th>
                                              <th>Desination</th>
                                              <th >Date of Journey</th>
@@ -220,6 +221,7 @@ while($row=mysqli_fetch_array($sql))
                                             <td><?php echo $cnt;?></td>
                                               <td><?php echo htmlentities($row['flight_no']);?></td>
                                             <td><?php echo htmlentities($row['type_of_flight']);?></td>
+                                            <td><?php echo htmlentities($row['airline']);?></td>
                                             <td><?php echo htmlentities($row['source']);?></td>
                                             <td><?php echo htmlentities($row['destination']);?></td>
                                              <td><?php echo htmlentities($row['date_of_journey']);?></td>

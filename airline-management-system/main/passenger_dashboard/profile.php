@@ -80,7 +80,7 @@ $rows=$result->fetch_assoc()
                 </li>
                 
                 <li>
-                    <a href="passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
+                    <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>
@@ -105,9 +105,10 @@ $rows=$result->fetch_assoc()
         <main>
                 <div class="card-single">
                        <center><h2>Personal Details</h2></center>
+                      
                 </div>
                 <div class="card-single">
-                    <form action="update_profile.php" method="post">
+                    <form action="update_profile.php" method="post" onsubmit="return profileValidation()">
                         <div class="form-group">
 
                             <label for="exampleInputEmail1"><b>Passenger ID : </b></label>
@@ -118,74 +119,148 @@ $rows=$result->fetch_assoc()
                             <?php
                             }else{
                             ?>
-                            <input type="name" class="form-control" name="id" aria-describedby="emailHelp" placeholder="Enter passenger Id">
+                            <input type="name" class="form-control" name="id" aria-describedby="emailHelp" placeholder="Enter passenger Id" required >
                             <?php
                             }
                             ?>
                             </div>
+
+                            <div class="form-group">
+
+                            <label for=""><b><u>Note:</u> Password is stored in hashed format for security purposes. </b></label>
+                            </div>
+    
     
                         <div class="form-group">
-                            <label for="exampleInputEmail1"><b>Name</b></label>
+                            <label for="exampleInputEmail1"><b>Name</b><span class="required error" id="name_info"></label>
                             <?php
                             if(isset($rows['pass_name'])){
                             ?>
-                            <input type="name" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter Name" value="<?php echo $rows['pass_name'];?>">
+                            <input type="name" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter Name" value="<?php echo $rows['pass_name'];?>" required>
                             <?php
                             }else{
                             ?>
-                            <input type="name" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter Name">
+                            <input type="name" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter Name" required>
                             <?php
                             }
                             ?>
                             </div>
                         <div class="form-group">
-                          <label for="exampleInputEmail1"><b>Email address</b></label>
+                          <label for="exampleInputEmail1"><b>Email address</b><span class="required error" id="email_id_info"></label>
                           <?php
                             if(isset($rows['email_id'])){
                           ?>
-                          <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $rows['email_id'];?>">
+                          <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $rows['email_id'];?>" required>
                           <?php
                             }else{
                             ?>
-                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
                             <?php
                             }
                             ?>
                            </div>
                         <div class="form-group">
-                          <label for="exampleInputPassword1"><b>Password</b></label>
+                          <label for="exampleInputPassword1"><b>Password</b><span class="required error" id="password_info"></label>
                           <?php
                             if(isset($rows['password'])){
                           ?>
-                          <input type="name" class="form-control" name="password" placeholder="Enter Password" value="<?php echo $rows['password'];?>">
+                          <input type="name" class="form-control" name="password" placeholder="Enter Password" value="<?php echo $rows['password'];?>" required>
                           <?php
                             }else{
                             ?>
-                          <input type="name" class="form-control" name="password" placeholder="Enter Password">
+                          <input type="name" class="form-control" name="password" placeholder="Enter Password" required>
                            <?php
                             }
                             ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1"><b>Passport Number</b></label>
+                            <label for="exampleInputPassword1"><b>Passport Number (Max 8 characters accepted)</b><span class="required error" id="passport_number_info"></label>
                             <?php
                             if(isset($rows['passport_no'])){
                             ?>
-                            <input type="name" class="form-control" name="passport_number" placeholder="Enter Passport Number" value="<?php echo $rows['passport_no'];?>">
+                            <input type="text" class="form-control" name="passport_number" placeholder="Enter Passport Number" value="<?php echo $rows['passport_no'];?>" required>
                             <?php
                             }else{
                             ?>
-                          <input type="name" class="form-control" name="passport_number" placeholder="Enter Passport Number">
+                          <input type="text" pattern="[a-zA-Z0-9]+"	maxlength="8" title="Passport length should not be greater than 8 aplha-numeric characters." class="form-control" name="passport_number" placeholder="Enter Passport Number" required> 
                            <?php
                             }
                             ?>
                         </div>
-                        <button type="submit" class="btn btn-primary" onclick="Alert()">Save Changes</button>
+                        <button type="submit" class="btn btn-primary" >Save Changes</button>
                       </form>
                 </div>
         </main>
         
            
-    </div>  
+    </div>
+    
+    <script>
+function profileValidation() {
+	var valid = true;
+
+	$("#name").removeClass("error-field");
+	$("#email").removeClass("error-field");
+	$("#password").removeClass("error-field");
+	$("#passport_number").removeClass("error-field");
+
+
+	var Name = $("#passenger_id").val();
+	var Email = $("#email_id").val();
+	var Passportno=$("#passport_no").val();
+	var Password = $('#signup-password').val();
+	var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+
+
+	if (Name.trim() == "") {
+		$("#name_info").html("required.").css("color", "#ee0000").show();
+		$("#name").addClass("error-field");
+		valid = false;
+	}
+	if (Passportno.trim() == "") {
+		$("#passport_number_info").html("required.").css("color", "#ee0000").show();
+		$("#passport_number").addClass("error-field");
+		valid = false;
+	}
+	
+	if (Email == "") {
+		$("#email_info").html("required").css("color", "#ee0000").show();
+		$("#email").addClass("error-field");
+		valid = false;
+	} else if (Email.trim() == "") {
+		$("#email_info").html("Invalid email address.").css("color", "#ee0000").show();
+		$("#email").addClass("error-field");
+		valid = false;
+	} else if (!emailRegex.test(Email)) {
+		$("#email_info").html("Invalid email address.").css("color", "#ee0000")
+				.show();
+		$("#email").addClass("error-field");
+		valid = false;
+	}
+	if (Password.trim() == "") {
+		$("#password_info").html("required.").css("color", "#ee0000").show();
+		$("#password").addClass("error-field");
+		valid = false;
+	}
+	if (valid == false) {
+		$('.error-field').first().focus();
+		valid = false;
+	}
+
+
+ if(valid==true)
+ {
+     Alert();
+    
+ }
+
+	
+ return valid;
+}
+
+
+</script>
+
     </body>
     </html>

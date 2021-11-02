@@ -227,6 +227,7 @@ function signupValidation() {
 		$('.error-field').first().focus();
 		valid = false;
 	}
+	
 	return valid;
 }
 

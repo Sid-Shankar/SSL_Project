@@ -54,7 +54,7 @@
                 </li>
                 <br/>
                 <li>
-                    <a href="passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
+                    <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>
@@ -74,7 +74,7 @@
                     <form action="confirm_deletion.php" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Flight Number</label>
-                            <input type="name" class="form-control" name="flight_no" aria-describedby="emailHelp" placeholder="Enter Flight Number">
+                            <input type="number" class="form-control" name="flight_no" aria-describedby="emailHelp" placeholder="Enter Flight Number" required>
                         </div>
                         <button  type="submit" class="btn btn-primary">Cancel Ticket</button>
                     </form>

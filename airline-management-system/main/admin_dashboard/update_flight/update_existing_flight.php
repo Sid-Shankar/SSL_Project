@@ -83,6 +83,15 @@ while($row=mysqli_fetch_array($sql)){
 					<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
+								Airline<span class="required error" id="airline_info"></span>
+							</div>
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="20" title="Max 20  characters without digits are required."  name="airline"
+								id="airline" value="<?php echo $row['airline'];?>" >
+						</div>
+					</div>
+					<div class="row">
+						<div class="inline-block">
+							<div class="form-label">
 								Source<span class="required error" id="source_info"></span>
 							</div>
 							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required."  name="source" id="source" value="<?php echo $row['source'];?>">
@@ -210,6 +219,7 @@ function signupValidation() {
 
 	$("#type_of_flight").removeClass("error-field");
 	$("#flight_no").removeClass("error-field");
+	$("#airline").removeClass("error-field");
 	$("#source").removeClass("error-field");
 	$("#destination").removeClass("error-field");
 	$("#intermediate_stops").removeClass("error-field");
@@ -225,6 +235,7 @@ function signupValidation() {
 
 	var Type_of_flight = $("#type_of_flight").val();
 	var Flightno = $("#flight_no").val();
+	var Airline =$("#airline").val();
 	var Source=$("#source").val();
 	var Destination = $('#destination').val();
 	var Intermediatestops=$("#intermediate_stops").val();
@@ -255,6 +266,13 @@ function signupValidation() {
 		$("#flight_no").addClass("error-field");
 		valid = false;
 	}
+
+	if(Airline.trim() == "")
+   {
+	     $("#airline_info").html("required.").css("color", "#ee0000").show();
+		$("#airline").addClass("error-field");
+		valid = false;
+   }
 
 	if(Source.trim() == "")
 	{

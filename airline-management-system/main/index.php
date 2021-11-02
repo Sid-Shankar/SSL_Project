@@ -358,7 +358,7 @@ include "createdb.php";
               <div class="member-info">
                 <h4>Raghav Magazine</h4>
                 <span>Web Developer</span>
-                <p>200030041</p>
+                <p>200010042</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
                   <a href=""><i class="ri-facebook-fill"></i></a>
@@ -562,10 +562,10 @@ include "createdb.php";
 
           <center>
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form action="" method="post" role="form" class="php-email-form" >
+              <form action="" method="post" role="form" onsubmit="return formValidation()" class="php-email-form" >
                 <div class="row">
                   <div class="form-group col-md-6" style="text-align: left;">
-                    <label for="name">Name</label>
+                    <label for="name" id="name_info">Name</label>
                     <input type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." name="name" class="form-control" id="name" required>
                   </div>
                   <div class="form-group " style="text-align: left;">
@@ -594,6 +594,76 @@ include "createdb.php";
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
+
+
+
+  <script>
+function formValidation() {
+	var valid = true;
+
+	$("#name").removeClass("error-field");
+	$("#email").removeClass("error-field");
+	$("#password").removeClass("error-field");
+	$("#passport_number").removeClass("error-field");
+
+
+	var Name = $("#passenger_id").val();
+	var Email = $("#email_id").val();
+	var Passportno=$("#passport_no").val();
+	var Password = $('#signup-password').val();
+	var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+
+
+	if (Name.trim() == "") {
+		$("#name_info").html("required.").css("color", "#ee0000").show();
+		$("#name").addClass("error-field");
+		valid = false;
+	}
+	if (Passportno.trim() == "") {
+		$("#passport_number_info").html("required.").css("color", "#ee0000").show();
+		$("#passport_number").addClass("error-field");
+		valid = false;
+	}
+	
+	if (Email == "") {
+		$("#email_info").html("required").css("color", "#ee0000").show();
+		$("#email").addClass("error-field");
+		valid = false;
+	} else if (Email.trim() == "") {
+		$("#email_info").html("Invalid email address.").css("color", "#ee0000").show();
+		$("#email").addClass("error-field");
+		valid = false;
+	} else if (!emailRegex.test(Email)) {
+		$("#email_info").html("Invalid email address.").css("color", "#ee0000")
+				.show();
+		$("#email").addClass("error-field");
+		valid = false;
+	}
+	if (Password.trim() == "") {
+		$("#password_info").html("required.").css("color", "#ee0000").show();
+		$("#password").addClass("error-field");
+		valid = false;
+	}
+	if (valid == false) {
+		$('.error-field').first().focus();
+		valid = false;
+	}
+
+
+ if(valid==true)
+ {
+     Alert();
+    
+ }
+
+	
+ return valid;
+}
+
+
+</script>
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

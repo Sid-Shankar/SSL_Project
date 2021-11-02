@@ -51,6 +51,11 @@
                 </li>
                 <br/>
                 <li>
+                    <a href="print_ticket.php" ><span class="las la-clipboard-list"></span>
+                    <span>Print Ticket</span></a>
+                </li>
+                <br/>
+                <li>
                     <a href="status.php"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>
                 </li>
@@ -61,7 +66,7 @@
                 </li>
                 <br/>
                 <li>
-                    <a href="passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
+                    <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>

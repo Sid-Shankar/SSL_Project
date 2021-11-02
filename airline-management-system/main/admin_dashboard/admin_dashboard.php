@@ -155,7 +155,7 @@ if (isset($_SESSION["admin_id"])) {
             data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-book"></i></div>
-              <h4><a href="manage_booked_flights/manage_booked_flights.php">View Booked flight tickets</a></h4>
+              <h4><a href="manage_booked_flights/view_booked_flights.php">View Booked flight tickets</a></h4>
               <p>View all the booked flight tickets by the passengers.</p>
             </div>
           </div>

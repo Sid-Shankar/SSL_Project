@@ -57,6 +57,11 @@ $result = $mysqli->query($sql);
                 </li>
                 <br/>
                 <li>
+                    <a href="print_ticket.php" ><span class="las la-clipboard-list"></span>
+                    <span>Print Ticket</span></a>
+                </li>
+                <br/>
+                <li>
                     <a href="status.php"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>
                 </li>
@@ -67,7 +72,7 @@ $result = $mysqli->query($sql);
                 </li>
                 <br/>
                 <li>
-                    <a href="passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
+                    <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>
@@ -96,6 +101,8 @@ $result = $mysqli->query($sql);
           <th scope="col">From</th>
           <th scope="col">To</th>
           <th scope="col">Date</th>
+          <th scope="col">Departure</th>
+          <th scope="col">Arrival</th>
           <th scope="col">Class</th>
           <th scope="col">Meal Plan</th>
           <th scope="col">Total Amount (in &#8377;)</th>
@@ -112,6 +119,8 @@ $result = $mysqli->query($sql);
           <td><?php echo $rows['source'];?></td>
           <td><?php echo $rows['destination'];?></td>
           <td><?php echo $rows['date_of_journey'];?></td>
+          <td><?php echo $rows['departure_time'];?></td>
+          <td><?php echo $rows['arrival_time'];?></td>
           <td><?php echo $rows['type_of_class'];?></td>
           <td><?php echo $rows['meal'];?></td>
           <td><?php echo $rows['amount'];?></td>
