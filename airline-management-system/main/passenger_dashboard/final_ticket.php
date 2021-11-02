@@ -39,7 +39,8 @@ $rows=$result->fetch_assoc()
         }
     </style>
 </head>
-<body> 
+<body>
+
 <form id ="form-print" enctype="text/plain" class="form-control">
                 <center><h2>Airline Management System</h2></center>
                 <br/>
@@ -116,16 +117,6 @@ $rows=$result->fetch_assoc()
                  </center>
                  <br/>
                  </form>
-
-                 <center><input type="button" class="btn btn-primary" onclick="GeneratePdf();" value="Download Ticket"></center>
-                 <br/>
-               <script>          
-               function GeneratePdf() 
-               {
-                var element = document.getElementById('form-print');
-                html2pdf(element);
-               }
-               </script>
                <center>
                <button id="mybutton" type="button" class="btn btn-primary" >Back To Dashboard</button>
             </center>
@@ -135,12 +126,5 @@ $rows=$result->fetch_assoc()
          location. href = "index.php";
          };
 </script>
-  
-    <script src=
-"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity=
-"sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" 
-        crossorigin="anonymous">
-    </script>
-            </body>         
+</body>         
 </html>      

@@ -1,6 +1,7 @@
 <?php
 $name=$_POST["name"];
 $email=$_POST["email"];
+$pass_num=$_POST["pass_num"];
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,12 +12,16 @@ session_start();
 $flight_no=$_SESSION['flight_no'] ;
 $fair_paid=$_SESSION['fare_paid'] ;
 $passenger_id=$_SESSION['passenger_id'];
+$flight=$_SESSION['flight'];
+$people=$_SESSION['people'];
 $_SESSION['name']=$name;
 $_SESSION['email']=$email;
+$_SESSION['pass_num']=$pass_num;
 
-$Sql ="INSERT INTO airline_system.booked_flights (flight_no,passenger_id,pass_name,
-    fare_paid,reservation_status) VALUES ('$flight_no','$passenger_id','$name','$fair_paid','Waiting')";
-    header("location:final_ticket.php");
 
+$Sql ="INSERT INTO airline_system.booked_flights (flight_no,airline,passenger_id,pass_name,passport_no,
+passenger_count,fare_paid,reservation_status) VALUES ('$flight_no','$flight','$passenger_id','$name','$pass_num',
+'$people','$fair_paid','Waiting')";
+header("location:final_ticket.php");
 ?>
 

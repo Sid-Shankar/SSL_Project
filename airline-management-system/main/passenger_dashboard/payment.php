@@ -1,19 +1,20 @@
 <?php
-$flight=$_POST['flight'];
-$flight_type=$_POST['flight_type'];
-$start=$_POST['start'];
-$destination=$_POST['destination'];
-$date=$_POST['date'];
-$meal=$_POST['meal'];
-$people=$_POST['people'];
-$class=$_POST['class'];
+session_start();
+$flight=$_SESSION['flight'];
+$flight_type=$_SESSION['flight_type'];
+$start=$_SESSION['start'];
+$destination=$_SESSION['destination'];
+$date=$_SESSION['date'];
+$meal=$_SESSION['meal'];
+$people=$_SESSION['people'];
+$class=$_SESSION['class'];
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "airline_system";
 $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "SELECT * FROM airline_system.flights WHERE type_of_flight='$flight_type' AND source='$start' AND
-        destination='$destination' AND date_of_journey='$date' AND type_of_class='$class'";
+        destination='$destination' AND date_of_journey='$date' AND type_of_class='$class' AND airline='$flight'";
 $result = $conn->query($sql);
 
 ?>
@@ -58,17 +59,12 @@ $result = $conn->query($sql);
                     <a href="booking.php"><span class="las la-clipboard-list"></span>
                     <span>View Bookings</span></a>
                 </li>
-                <br>
+                
                 <li>
                     <a href="" class="active"><span class="las la-ticket-alt"></span>
                     <span>Book Ticket</span></a>
                 </li>
-                <br/>
-                <li>
-                    <a href="print_ticket.php" ><span class="las la-clipboard-list"></span>
-                    <span>Print Ticket</span></a>
-                </li>
-                <br/>
+                
                 <li>
                     <a href="status.php"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>
@@ -80,7 +76,7 @@ $result = $conn->query($sql);
                 </li>
                 <br/>
                 <li>
-                    <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
+                    <a href="passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>
@@ -98,16 +94,12 @@ $result = $conn->query($sql);
         <main>
 
 <div class="card-single">
-<?php
-if($result->num_rows > 0)
-{
-?>
 <?php 
 $rows=$result->fetch_assoc();
 $cost=$rows['amount']*$people;
 $discount=$rows['discount']*($cost/100);
 $final_cost=$cost-$discount;
-session_start();
+
 $_SESSION['flight_no'] = $rows['flight_no'];
 $_SESSION['fare_paid'] = $final_cost;
 $_SESSION['people']=$people ;
@@ -147,6 +139,10 @@ $_SESSION['meal']=$meal;
                         <label for="firstName">Full Name</label>
                         <input type="text" class="form-control" name="name" placeholder="Full Name" value="" required>
                     </div>
+                </div>
+                <div class="mb-3">
+                    <label for="username">Passport Number</label>
+                    <input type="name" class="form-control" name="pass_num" placeholder="" required>
                 </div>
                 <div class="mb-3">
                     <label for="username">Email</label>
@@ -213,20 +209,6 @@ $_SESSION['meal']=$meal;
         </div>
     </div>
 </div>
-<?php
-}else{
-?>  
-<center><h2>Flight Not Available</h2></center>
-<button id="mybutton" type="button" class="btn btn-primary" >Back To Booking</button>
-<script type="text/javascript">
-         document. getElementById("mybutton"). onclick = function () 
-         {
-         location. href = "ticket.php";
-         };
-</script>
-<?php
-}
-?>   
 </div>
 </main>
 </div>
