@@ -3,6 +3,9 @@ This repo is for SSL Autumn 2021 course project.
 
 UPDATES:
 
+3 Nov 2021:
+* Added checks for empty input and data type + some corrections in code.
+
 2 Nov 2021:
 * Updated passenger and admin dashboard.
 
