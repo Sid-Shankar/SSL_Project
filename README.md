@@ -3,6 +3,9 @@ This repo is for SSL Autumn 2021 course project.
 
 UPDATES:
 
+2 Nov 2021:
+* Updated passenger and admin dashboard.
+
 27 Oct 2021:
 * Updated admin dashboard, welcome page and database file in main folder
 
