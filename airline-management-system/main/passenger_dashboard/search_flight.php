@@ -92,6 +92,7 @@
           <tr>
           <th scope="col">Flight Number</th>
           <th scope="col">Type of Flight</th>
+          <th scope="col">Airline</th>
           <th scope="col">Arrival</th>
           <th scope="col">Departure</th>
           <th scope="col">Type of Class</th>
@@ -107,6 +108,7 @@
           <tr>
           <td><?php echo $rows['flight_no'];?></td>
           <td><?php echo $rows['type_of_flight'];?></td>
+          <td><?php echo $rows['airline'];?></td>
           <td><?php echo $rows['arrival_time'];?></td>
           <td><?php echo $rows['departure_time'];?></td>
           <td><?php echo $rows['type_of_class'];?></td>

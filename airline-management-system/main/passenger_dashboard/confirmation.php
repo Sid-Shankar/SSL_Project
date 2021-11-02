@@ -64,12 +64,17 @@ $result = $conn->query($sql);
                     <a href="" ><span class="las la-clipboard-list"></span>
                     <span>View Bookings</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="ticket.php" class="active"><span class="las la-ticket-alt"></span>
                     <span>Book Ticket</span></a>
                 </li>
-                
+                <br/>
+                <li>
+                    <a href="print_ticket.php" ><span class="las la-clipboard-list"></span>
+                    <span>Print Ticket</span></a>
+                </li>
+                <br/>
                 <li>
                     <a href="status.php"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>
@@ -81,7 +86,7 @@ $result = $conn->query($sql);
                 </li>
                 <br/>
                 <li>
-                    <a href="passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
+                    <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>

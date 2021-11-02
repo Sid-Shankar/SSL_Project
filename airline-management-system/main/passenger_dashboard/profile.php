@@ -70,6 +70,11 @@ $rows=$result->fetch_assoc()
                 </li>
                 <br/>
                 <li>
+                    <a href="print_ticket.php" ><span class="las la-clipboard-list"></span>
+                    <span>Print Ticket</span></a>
+                </li>
+                <br/>
+                <li>
                     <a href="status.php"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>
                 </li>
@@ -119,7 +124,7 @@ $rows=$result->fetch_assoc()
                             <?php
                             }else{
                             ?>
-                            <input type="name" class="form-control" name="id" aria-describedby="emailHelp" placeholder="Enter passenger Id" required >
+                            <input type="name" class="form-control" name="id" aria-describedby="emailHelp" pattern="[a-zA-Z]+" maxlength="50" title="Max 50 alphabets without digits are required." placeholder="Enter passenger Id" required >
                             <?php
                             }
                             ?>
@@ -136,11 +141,11 @@ $rows=$result->fetch_assoc()
                             <?php
                             if(isset($rows['pass_name'])){
                             ?>
-                            <input type="name" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter Name" value="<?php echo $rows['pass_name'];?>" required>
+                            <input type="name" class="form-control" name="name" aria-describedby="emailHelp" pattern="[a-zA-Z][a-zA-Z ]+" maxlength="50" title="Max 50 alphabets without digits are required." placeholder="Enter Name" value="<?php echo $rows['pass_name'];?>" required>
                             <?php
                             }else{
                             ?>
-                            <input type="name" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter Name" required>
+                            <input type="name" class="form-control" name="name" aria-describedby="emailHelp" pattern="[a-zA-Z][a-zA-Z ]+" maxlength="50" title="Max 50 alphabets without digits are required." placeholder="Enter Name" required>
                             <?php
                             }
                             ?>
@@ -208,7 +213,7 @@ function profileValidation() {
 	var Name = $("#passenger_id").val();
 	var Email = $("#email_id").val();
 	var Passportno=$("#passport_no").val();
-	var Password = $('#signup-password').val();
+	var Password = $('#password').val();
 	var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 
@@ -251,7 +256,7 @@ function profileValidation() {
 
  if(valid==true)
  {
-     Alert();
+     
     
  }
 

@@ -151,14 +151,17 @@ if (!mysqli_query($connect, $sql))
     echo "Error inserting data: " . mysqli_error($connect);
 }
 
+
 //MODIFIED to insert a sample booked flight, need to see how it works
 
-$sql="INSERT INTO airline_system.booked_flights (flight_no,airline,passenger_id,pass_name,passport_no,fare_paid,passenger_count,reservation_status) SELECT * FROM (SELECT '911','Vistara','sid123', 'siddharth', 'A7654321', '5700', '2','Waiting') AS tmp WHERE NOT EXISTS (SELECT pass_name from airline_system.booked_flights WHERE pass_name='siddharth') LIMIT 1";
+//UPDATE:(2 nov 2021): Removing automatic insert of sample flight below
 
-if (!mysqli_query($connect, $sql)) 
-{
-    echo "Error inserting data: " . mysqli_error($connect);
-}
+//$sql="INSERT INTO airline_system.booked_flights (flight_no,airline,passenger_id,pass_name,passport_no,fare_paid,passenger_count,reservation_status) SELECT * FROM (SELECT '911','Vistara','sid123', 'siddharth', 'A7654321', '5700', '2','Waiting') AS tmp WHERE NOT EXISTS (SELECT pass_name from airline_system.booked_flights WHERE pass_name='siddharth') LIMIT 1";
+
+//if (!mysqli_query($connect, $sql)) 
+//{
+ //   echo "Error inserting data: " . mysqli_error($connect);
+//}
 
 
 

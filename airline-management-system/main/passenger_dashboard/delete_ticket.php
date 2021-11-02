@@ -42,7 +42,12 @@
                     <a href="ticket.php"><span class="las la-ticket-alt"></span>
                     <span>Book Ticket</span></a>
                 </li>
-                
+                <br/>
+                <li>
+                    <a href="print_ticket.php" ><span class="las la-clipboard-list"></span>
+                    <span>Print Ticket</span></a>
+                </li>
+                <br/>
                 <li>
                     <a href="status.php" class="active"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>

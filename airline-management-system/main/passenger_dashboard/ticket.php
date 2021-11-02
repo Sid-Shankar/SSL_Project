@@ -37,12 +37,17 @@
                     <a href="booking.php"><span class="las la-clipboard-list"></span>
                     <span>View Bookings</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="" class="active"><span class="las la-ticket-alt"></span>
                     <span>Book Ticket</span></a>
                 </li>
-                
+                <br/>
+                <li>
+                    <a href="print_ticket.php" ><span class="las la-clipboard-list"></span>
+                    <span>Print Ticket</span></a>
+                </li>
+                <br/>
                 <li>
                     <a href="status.php"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>
@@ -54,7 +59,7 @@
                 </li>
                 <br/>
                 <li>
-                    <a href="passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
+                    <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
                 </li>
             </ul>
@@ -79,7 +84,7 @@
         </div>
         <br/>
         <div class="card-single">
-        <form action="confirmation.php" method="post">
+        <form action="confirmation.php" method="post" onsubmit="return formValidation()" >
          <div class="form-row">   
         <div class="form-group col-md-6">
          <label for="exampleInputPassword1">Select Airline</label>
@@ -102,20 +107,20 @@
         </select>
         </div>
         <div class="form-group col-md-6">
-        <label for="exampleInputPassword1">From</label>
-        <input type="name" class="form-control" name="start" aria-describedby="emailHelp" placeholder="Enter Starting Location">
+        <label for="exampleInputPassword1">From <span class="required error" id="from_info"></span></label>
+        <input type="text" class="form-control" name="start" aria-describedby="emailHelp" placeholder="Enter Starting Location" pattern="[a-zA-Z]+" maxlength="50" title="Max 50 alphabets without digits are required." required>
         </div>
         <div class="form-group col-md-6">
-        <label for="exampleInputPassword1">To</label>
-        <input type="name" class="form-control" name="destination" aria-describedby="emailHelp" placeholder="Enter Destination">
+        <label for="exampleInputPassword1">To <span class="required error" id="to_info"></span></label>
+        <input type="text" class="form-control" name="destination" aria-describedby="emailHelp" placeholder="Enter Destination" pattern="[a-zA-Z]+" maxlength="50" title="Max 50 alphabets without digits are required." required>
         </div>
         <div class="form-group col-md-6">
-        <label for="exampleInputPassword1">Number of People</label>
-        <input type="number" class="form-control" name="people" aria-describedby="emailHelp">
+        <label for="exampleInputPassword1">Number of People <span class="required error" id="people_info"></span></label>
+        <input type="number" class="form-control" name="people" aria-describedby="emailHelp" required>
         </div>
         <div class="form-group col-md-6">
-        <label for="exampleInputPassword1">Date of Journey</label>
-        <input type="date" class="form-control" name="date" aria-describedby="emailHelp">
+        <label for="exampleInputPassword1">Date of Journey <span class="required error" id="doj_info"></span></label>
+        <input type="date" class="form-control" name="date" aria-describedby="emailHelp" required>
         </div>
         <div class="form-group col-md-6">
          <label for="exampleInputPassword1">Select Class</label>
@@ -138,6 +143,47 @@
         <center><button type="submit" class="btn btn-primary">Confirm Booking and Proceed for Payment</button></center>
         </form>
         </div>
+
+
+        <script>
+function formValidation() {
+	var valid = true;
+
+
+	$("#start").removeClass("error-field");
+	$("#destination").removeClass("error-field");
+	
+
+	var Start = $("#start").val();
+	var Destination = $("#destination").val();
+	
+
+   if(Start.trim() == "")
+   {
+	     $("#from_info").html("required.").css("color", "#ee0000").show();
+		$("#start").addClass("error-field");
+		valid = false;
+   }
+
+    if(Flightno.trim() == "")
+	{
+		$("#to_info").html("required.").css("color", "#ee0000").show();
+		$("#destination").addClass("error-field");
+		valid = false;
+	}
+
+
+	if (valid == false) {
+		$('.error-field').first().focus();
+		valid = false;
+	}
+	return valid;
+}
+
+
+</script>
+
+
         </main>
     </div>
 </body>

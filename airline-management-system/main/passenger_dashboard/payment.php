@@ -133,33 +133,33 @@ $_SESSION['meal']=$meal;
         </div>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Payment Details</h4>
-            <form class="needs-validation" action="confirm_ticket.php" method="post">
+            <form class="needs-validation" action="confirm_ticket.php" method="post" onsubmit="return formValidation()">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="firstName">Full Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Full Name" value="" required>
+                        <label for="firstName">Full Name <span class="required error" id="name_info"></span></label>
+                        <input type="text" class="form-control" name="name" placeholder="Full Name" pattern="[a-zA-Z][a-zA-Z ]+" maxlength="50" title="Max 50 alphabets without digits are required." value="" required>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="username">Passport Number</label>
-                    <input type="name" class="form-control" name="pass_num" placeholder="" required>
+                    <label for="username">Passport Number <span class="required error" id="pass_num_info"></span></label>
+                    <input type="text" class="form-control" name="pass_num" pattern="[a-zA-Z0-9]+"	maxlength="8" title="Passport length should not be greater than 8 aplha-numeric characters." placeholder="Eg: D1234567" required>
                 </div>
                 <div class="mb-3">
-                    <label for="username">Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="you@gmail.com" required>
+                    <label for="username">Email <span class="required error" id="email_info"></span></label>
+                    <input type="email" class="form-control" name="email" placeholder="Eg: you@gmail.com" required>
                 </div>
                 <div class="row">
                     <div class="col-md-5 mb-3">
-                        <label for="country">Country</label>
-                        <input type="name" class="form-control" name="country" placeholder="Eg:India" required>
+                        <label for="country">Country <span class="required error" id="country_info"></span></label>
+                        <input type="text" class="form-control" name="country" pattern="[a-zA-Z]+" maxlength="50" title="Max 50 alphabets without digits are required." placeholder="Eg:India" required>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="state">State</label>
-                        <input type="name" class="form-control" name="state" placeholder="Eg:New Delhi" required>
+                        <label for="state">State <span class="required error" id="state_info"></span></label>
+                        <input type="text" class="form-control" name="state" pattern="[a-zA-Z]+" maxlength="50" title="Max 50 alphabets without digits are required." placeholder="Eg:Delhi" required>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="zip">PIN</label>
-                        <input type="text" class="form-control" name="PIN" placeholder="" required>
+                        <label for="zip">PIN <span class="required error" id="pin_info"></span></label>
+                        <input type="number" class="form-control" name="PIN" pattern="[0-9]+" maxlength="6" title="Max 6 digits are required." placeholder="Eg: 110024" required>
                     </div>
                 </div>
                 <hr class="mb-4">
@@ -184,23 +184,23 @@ $_SESSION['meal']=$meal;
                 <hr class="mb-4">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="cc-name">Name on card</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                        <label for="cc-name">Name on card <span class="required error" id="cc-name_info"></span></label>
+                        <input type="text" class="form-control" id="cc-name" pattern="[a-zA-Z][a-zA-Z ]+" maxlength="50" title="Max 50 alphabets without digits are required." placeholder="Eg: Harsh Kumar" required>
                         <small class="text-muted">Full name as displayed on card</small>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="cc-number">Credit card number</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="Eg:1234 5673 6254 1604" required>
+                        <label for="cc-number">Credit card number<span class="required error" id="cc-number_info"></span></label>
+                        <input type="text" class="form-control" id="cc-number" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" maxlength="19" title="Please enter in this format: 1234-5678-9876-4321." placeholder="Eg:1234-5673-6254-1604" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 mb-3">
-                        <label for="cc-expiration">Expiration</label>
-                        <input type="text" class="form-control" id="cc-expiration" placeholder="MM/YY" required>
+                        <label for="cc-expiration">Expiration <span class="required error" id="cc-expiration_info"></span></label>
+                        <input type="text" class="form-control" id="cc-expiration" pattern="[0-9]{2}/[0-9]{2}" maxlength="5" title="Please enter in this format: MM/YY." placeholder="MM/YY" required>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="cc-cvv">CVV</label>
-                        <input type="text" class="form-control" id="cc-cvv" placeholder="Eg:123" required>
+                        <label for="cc-cvv">CVV <span class="required error" id="cc-cvv_info"></span></label>
+                        <input type="number" class="form-control" id="cc-cvv" pattern="[0-9]+" maxlength="3" title="Max 3 digits are required." placeholder="Eg:123" required>
                     </div>
                 </div>
                 <hr class="mb-4">
@@ -210,6 +210,119 @@ $_SESSION['meal']=$meal;
     </div>
 </div>
 </div>
+
+
+<script>
+function formValidation() {
+	var valid = true;
+
+
+	$("#name").removeClass("error-field");
+	$("#pass_num").removeClass("error-field");
+    $("#email").removeClass("error-field");
+    $("#country").removeClass("error-field");
+    $("#state").removeClass("error-field");
+    $("#PIN").removeClass("error-field");
+    $("#cc-name").removeClass("error-field");
+    $("#cc-number").removeClass("error-field");
+    $("#cc-expiration").removeClass("error-field");
+    $("#cc-cvv").removeClass("error-field");
+    
+	
+
+	var Name = $("#name").val();
+	var Passnum = $("#pass_num").val();
+    var Email = $("#email").val();
+    var Country = $("#country").val();
+    var State = $("#state").val();
+    var Pin = $("#PIN").val();
+    var CC_name = $("#cc-name").val();
+    var CC_number = $("#cc-number").val();
+    var CC_expiration = $("#cc-expiration").val();
+    var CC_cvv = $("#cc-cvv").val();
+	
+
+   if(Name.trim() == "")
+   {
+	     $("#name_info").html("required.").css("color", "#ee0000").show();
+		$("#name").addClass("error-field");
+		valid = false;
+   }
+
+    if(Passnum.trim() == "")
+	{
+		$("#pass_num_info").html("required.").css("color", "#ee0000").show();
+		$("#pass_num").addClass("error-field");
+		valid = false;
+	}
+
+    if(Email.trim() == "")
+	{
+		$("#email_info").html("required.").css("color", "#ee0000").show();
+		$("#email").addClass("error-field");
+		valid = false;
+	}
+
+    if(Country.trim() == "")
+	{
+		$("#country_info").html("required.").css("color", "#ee0000").show();
+		$("#country").addClass("error-field");
+		valid = false;
+	}
+
+    if(State.trim() == "")
+	{
+		$("#state_info").html("required.").css("color", "#ee0000").show();
+		$("#state").addClass("error-field");
+		valid = false;
+	}
+
+    if(Pin.trim() == "")
+	{
+		$("#pin_info").html("required.").css("color", "#ee0000").show();
+		$("#PIN").addClass("error-field");
+		valid = false;
+	}
+    if(CC_name.trim() == "")
+	{
+		$("#cc-name_info").html("required.").css("color", "#ee0000").show();
+		$("#cc-name").addClass("error-field");
+		valid = false;
+	}
+
+    if(CC_number.trim() == "")
+	{
+		$("#cc-number_info").html("required.").css("color", "#ee0000").show();
+		$("#cc-number").addClass("error-field");
+		valid = false;
+	}
+
+    if(CC_expiration.trim() == "")
+	{
+		$("#cc-expiration_info").html("required.").css("color", "#ee0000").show();
+		$("#cc-expiration").addClass("error-field");
+		valid = false;
+	}
+
+    if(CC_cvv.trim() == "")
+	{
+		$("#cc-cvv_info").html("required.").css("color", "#ee0000").show();
+		$("#cc-cvv").addClass("error-field");
+		valid = false;
+	}
+
+	if (valid == false) {
+		$('.error-field').first().focus();
+		valid = false;
+	}
+	return valid;
+}
+
+
+</script>
+
+
+
 </main>
 </div>
 </body>

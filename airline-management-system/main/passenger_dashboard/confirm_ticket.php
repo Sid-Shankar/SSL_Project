@@ -7,7 +7,7 @@ $username = "root";
 $password = "";
 $dbname = "airline_system";
 
-$mysqli = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 session_start();
 $flight_no=$_SESSION['flight_no'] ;
 $fair_paid=$_SESSION['fare_paid'] ;
@@ -19,9 +19,19 @@ $_SESSION['email']=$email;
 $_SESSION['pass_num']=$pass_num;
 
 
-$Sql ="INSERT INTO airline_system.booked_flights (flight_no,airline,passenger_id,pass_name,passport_no,
+$sql ="INSERT INTO airline_system.booked_flights (flight_no,airline,passenger_id,pass_name,passport_no,
 passenger_count,fare_paid,reservation_status) VALUES ('$flight_no','$flight','$passenger_id','$name','$pass_num',
 '$people','$fair_paid','Waiting')";
+
+if ($conn->query($sql) === TRUE) 
+{
+
+}
+else 
+{
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
 header("location:final_ticket.php");
 ?>
 

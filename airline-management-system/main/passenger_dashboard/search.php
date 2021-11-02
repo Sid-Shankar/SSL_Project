@@ -76,19 +76,19 @@
         </header> 
         <main>
          <div class="card-single">
-          <form action="search_flight.php" method="post">
+          <form action="search_flight.php" method="post" onsubmit="return formValidation()">
             <div class="form-row">   
                 <div class="form-group col-md-6">
-                <label for="exampleInputPassword1">From</label>
-                <input type="name" class="form-control" name="start" aria-describedby="emailHelp" placeholder="Enter Starting Location" required>
+                <label for="exampleInputPassword1">From <span class="required error" id="from_info"></span></label>
+                <input type="text" class="form-control" pattern="[a-zA-Z]+" maxlength="50" title="Max 50 aphabets without digits are required." name="start" aria-describedby="emailHelp" placeholder="Enter Starting Location" required >
                 </div>
                 <div class="form-group col-md-6">
-                <label for="exampleInputPassword1">To</label>
-                <input type="name" class="form-control" name="destination" aria-describedby="emailHelp" placeholder="Enter Destination" required>
+                <label for="exampleInputPassword1">To <span class="required error" id="to_info"></span></label>
+                <input type="text" class="form-control" pattern="[a-zA-Z]+" maxlength="50" title="Max 50 alphabets without digits are required." name="destination" aria-describedby="emailHelp" placeholder="Enter Destination" required >
                 </div>
                 <div class="form-group col-md-6">
-                <label for="exampleInputPassword1">Date of Journey</label>
-                <input type="date" class="form-control" name="date" aria-describedby="emailHelp" required>
+                <label for="exampleInputPassword1">Date of Journey <span class="required error" id="doj_info"></span></label>
+                <input type="date" class="form-control" name="date" aria-describedby="emailHelp" required >
                 </div>
             </div>
             <button  type="submit" class="btn btn-primary">Search Flights</button>
@@ -96,6 +96,54 @@
          </div> 
        </div>
              
+       <script>
+function formValidation() {
+	var valid = true;
+
+
+	$("#start").removeClass("error-field");
+	$("#destination").removeClass("error-field");
+	$("#date").removeClass("error-field");
+	
+
+
+	var Start = $("#start").val();
+	var Destination = $("#destination").val();
+	var Doj =$("#date").val();
+	
+
+
+   if(Start.trim() == "")
+   {
+	     $("#from_info").html("required.").css("color", "#ee0000").show();
+		$("#start").addClass("error-field");
+		valid = false;
+   }
+
+    if(Destination.trim() == "")
+	{
+		$("#to_info").html("required.").css("color", "#ee0000").show();
+		$("#destination").addClass("error-field");
+		valid = false;
+	}
+
+
+	if(Doj.trim() == "")
+	{
+		$("#doj_info").html("required.").css("color", "#ee0000").show();
+		$("#date").addClass("error-field");
+		valid = false;
+	}
+
+	if (valid == false) {
+		$('.error-field').first().focus();
+		valid = false;
+	}
+	return valid;
+}
+
+</script>
+
         </main>
     </div>  
     </body>

@@ -145,10 +145,10 @@ while($row=mysqli_fetch_array($sql))
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <div class="place-block">
         <div class="place-label">
-          AMOUNT
+         TOTAL AMOUNT
         </div>
         <div class="place-value">
-        <?php echo $row['amount'];?>
+        Rs. <?php echo $row['fare_paid'];?>
         </div>
       </div>
 
@@ -195,14 +195,14 @@ while($row=mysqli_fetch_array($sql))
   <section class="place">
   <div class="place-block">
     <div class="place-label">
-      DISCOUNT
+      DISCOUNT (%)
     </div>
     <div class="place-value">
     <?php echo $row['discount'];?>
     </div>
   </div>
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <div class="place-block">
     <div class="place-label">
     &nbsp;&nbsp;&nbsp; TRAVELLERS COUNT

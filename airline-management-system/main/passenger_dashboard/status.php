@@ -138,7 +138,7 @@ $result = $mysqli->query($sql);
           <td><?php echo $rows['departure_time'];?></td>
           <?php
           $flight_number=$rows['flight_no'];
-          if($rows['flight_status']='On-time'){
+          if($rows['flight_status']=='On-time'){
           ?>
           <td><p style="color:green;"><?php echo $rows['flight_status'];?></p></td>
           <?php

@@ -11,7 +11,7 @@ $con = new mysqli("localhost","root","","airline_system");
 if(isset($_GET['confirm']))
       {       
               $booked_flightid=$_GET['id'] ;
-              mysqli_query($con,"update booked_flights set reservation_status= 'confirmed' where id = '".$booked_flightid."'");
+              mysqli_query($con,"update booked_flights set reservation_status= 'Confirmed' where id = '".$booked_flightid."'");
                   $_SESSION['updmsg']="Message from server: Reservation status successfully changed to CONFIRMED !";
 
                 
@@ -21,7 +21,7 @@ if(isset($_GET['confirm']))
       if(isset($_GET['cancel']))
       {       
               $booked_flightid=$_GET['id'] ;
-              mysqli_query($con,"update booked_flights set reservation_status= 'cancelled' where id = '".$booked_flightid."'");
+              mysqli_query($con,"update booked_flights set reservation_status= 'Cancelled' where id = '".$booked_flightid."'");
                   $_SESSION['updmsg']="  Message from server: Reservation status successfully changed to CANCELLED !";
 
               

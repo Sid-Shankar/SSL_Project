@@ -104,7 +104,7 @@ if (! empty($_POST["signup-btn"])) {
 							<div class="form-label">
 								Name<span class="required error" id="pass_name_info"></span>
 							</div>
-							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." name="pass_name"
+							<input class="input-box-330" type="text" pattern="[a-zA-Z][a-zA-Z ]+" maxlength="50" title="Max 50  characters without digits are required." name="pass_name"
 								id="pass_name">
 						</div>
 					</div>
