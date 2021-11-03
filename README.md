@@ -3,6 +3,9 @@ This repo is for SSL Autumn 2021 course project.
 
 UPDATES:
 
+4 Nov 2021:
+* Modified search results and final ticket.
+
 3 Nov 2021:
 * Added checks for empty input and data type + some corrections in code.
 
