@@ -10,6 +10,7 @@ $dbname = "airline_system";
 $conn = new mysqli($servername, $username, $password, $dbname);
 session_start();
 $flight_no=$_SESSION['flight_no'] ;
+$_SESSION['final_ticket_flight_no']=$flight_no ;
 $fair_paid=$_SESSION['fare_paid'] ;
 $passenger_id=$_SESSION['passenger_id'];
 $flight=$_SESSION['flight'];

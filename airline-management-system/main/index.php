@@ -119,8 +119,8 @@ include "createdb.php";
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About Us</a></li>
           <li><a class="nav-link scrollto" href="process_login_signup.php">Book now</a></li>
-          <li><a class="nav-link   scrollto" href="search_flights.html">Search flights</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+          <li><a class="nav-link   scrollto" href="search_flights.php">Search flights</a></li>
+          <li><a class="nav-link scrollto" href="https://github.com/Sid-Shankar/SSL_Project" target="_blank">Github repo</a></li>
           <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
           <li><a class="getstarted scrollto" href="process_login_signup.php">Login/Signup</a></li>
         </ul>
@@ -144,7 +144,7 @@ include "createdb.php";
             <a href="process_login_signup.php" class="btn-get-started scrollto">Book Now</a>
             <span>
               &nbsp;&nbsp;
-              <a href="search_flights.html" class="btn-get-started scrollto">Search flights</a>
+              <a href="search_flights.php" class="btn-get-started scrollto">Search flights</a>
             </span>
           </div>
         </div>
@@ -224,71 +224,13 @@ include "createdb.php";
               book the flights online and can also cancel the reservation. The administrator manages the passenger
               booking system and updates the reservation status.
             </p>
-            <a href="#" class="btn-learn-more">Read More</a>
+            <a href="Project_proposal.pdf" target="_blank" class="btn btn-warning">Project Proposal</a>
           </div>
         </div>
 
       </div>
     </section><!-- End About Us Section -->
 
-
-    <!-- ======= Skills Section ======= -->
-    <!-- By skills we are referring to our status in the market  -->
-
-    <section id="skills" class="skills">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row">
-          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-            <img src="assets_welcome_page/img/survey.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-            <h3>Where do we stand when compared to others</h3>
-            <p class="fst-italic">
-              Below data is based XYZ Airline survey 2021 by Surveymoneky private Ltd.
-            </p>
-
-            <div class="skills-content">
-
-              <div class="progress">
-                <span class="skill">Airline Mgmt system <i class="val">90%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                  </div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">Ixigo <i class="val">90%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                  </div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">Expedia <i class="val">75%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                  </div>
-                </div>
-              </div>
-
-              <div class="progress">
-                <span class="skill">Make my trip <i class="val">55%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Skills Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
@@ -390,8 +332,8 @@ include "createdb.php";
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
               <div class="pic"><img src="assets_welcome_page/img/clients/usericon-resize.png" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Person 3</h4>
-                <span>Tarun Saini</span>
+                <h4>Tarun Saini</h4>
+                <span>Web developer</span>
                 <p>200010051</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
@@ -545,53 +487,6 @@ include "createdb.php";
       </div>
     </section><!-- End Frequently Asked Questions Section -->
 
-    <!-- ======= Contact Section ======= -->
-
-    <!-- UPDATE (6 oct 2021) : Contact form empty input needs to be validated       -->
-
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Contact Us</h2>
-          <p>We'd love to hear from you. Please drop us a message if you have any query.</p>
-        </div>
-
-        <div class="row">
-
-
-          <center>
-            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-              <form action="" method="post" role="form" onsubmit="return formValidation()" class="php-email-form" >
-                <div class="row">
-                  <div class="form-group col-md-6" style="text-align: left;">
-                    <label for="name" id="name_info">Name</label>
-                    <input type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." name="name" class="form-control" id="name" required>
-                  </div>
-                  <div class="form-group " style="text-align: left;">
-                    <label for="name">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" required>
-                  </div>
-                </div>
-                <div class="form-group" style="text-align: left;">
-                  <label for="name">Subject</label>
-                  <input type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." class="form-control" name="subject" id="subject" required>
-                </div>
-                <div class="form-group" style="text-align: left;">
-                  <label for="name">Your Message</label>
-                  <textarea class="form-control" name="message" rows="10" required></textarea>
-                </div>
-                <div class="text-center"><input type="submit" class="btn btn-primary" value="Send Message"
-                  onclick="alert('Congo! We have received your message');" ></div>
-
-              </form>
-            </div>
-          </center>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
 
@@ -691,9 +586,9 @@ function formValidation() {
               <li><i class="bx bx-chevron-right"></i> <a href="process_login_signup.php">Login/Signup</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="process_login_signup.php">Book Now</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="search_flights.html">Search flights</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="search_flights.php">Search flights</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#faq">FAQ</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contact Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/Sid-Shankar/SSL_Project" target="_blank">Github repo</a></li>
             </ul>
           </div>
 
@@ -716,12 +611,11 @@ function formValidation() {
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Airline Management system</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Airline Management system | CS213: SSL Course Project</span></strong>
       </div>
     </div>
   </footer><!-- End Footer -->
 
-  <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
 

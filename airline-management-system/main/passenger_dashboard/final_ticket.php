@@ -8,10 +8,14 @@ session_start();
 $passenger_id=$_SESSION["passenger_id"];
 $people=$_SESSION['people'] ;
 $flight=$_SESSION['flight'];
+$final_ticket_flight_no=$_SESSION['final_ticket_flight_no'];
+$booking_name=$_SESSION['name'];
+$pass_num=$_SESSION['pass_num'];
 $meal=$_SESSION['meal'];
-$sql = "SELECT * FROM airline_system.flights 
-        WHERE flight_no
-        IN (SELECT flight_no FROM airline_system.booked_flights WHERE passenger_id='$passenger_id')";    
+$sql = "SELECT flights.flight_no , booked_flights.passenger_id, booked_flights.pass_name, booked_flights.fare_paid ,booked_flights.reservation_status
+, booked_flights.passenger_count, booked_flights.passport_no, booked_flights.airline, flights.type_of_flight, flights.source, flights.destination, flights.intermediate_stops, flights.date_of_journey, flights.departure_time,
+flights.arrival_time, flights.type_of_class, flights.meal, flights.amount, flights.discount, flights.flight_status  FROM flights INNER JOIN booked_flights ON flights.flight_no = booked_flights.flight_no
+ WHERE booked_flights.flight_no ='".$final_ticket_flight_no."' ;";    
 $result = $mysqli->query($sql);
 $rows=$result->fetch_assoc()
 ?>
@@ -426,7 +430,7 @@ $rows=$result->fetch_assoc()
 </style>
 </head>
 <body>
-<center><h2>Ticket Confirmation</h2></center>
+<center><h2>Payment Confirmation</h2></center>
 <center>
 <div class="cardContainer" style="height: 400px; transition: 0.9s;">
 <div class="firstDisplay">
@@ -508,7 +512,7 @@ From
 <div class="secondTop"></div>
 <div class="secondBehind">
 <div class="secondBehindDisplay">
-<div class="price">&#8377;<?php echo $rows['amount'];?>
+<div class="price">&#8377;<?php echo $rows['fare_paid'];?>
 <div class="priceLabel">Amount</div>
 </div>
 <div class="price"><?php echo $rows['type_of_class'];?>
@@ -526,8 +530,24 @@ From
 <div class="price"><?php echo $meal;?>
 <div class="priceLabel">Meal Plan</div>
 </div>
+<div class="price"><?php echo "Waiting";?>
+<div class="priceLabel">Reservation Status</div>
+</div>
 <div class="price"><?php echo $rows['intermediate_stops'];?></b>
 <div class="priceLabel">Intermediate Stops</div>
+</div>
+</div>
+
+<div class="third" style="transform: rotate3d(1, 0, 0, -180deg); transition-delay: 0.6s;">
+<div class="thirdTop"></div>
+<div class="secondBehind">
+<div class="secondBehindDisplay">
+<div class="price"><?php echo $booking_name;?>
+<div class="priceLabel">Booking Name</div>
+</div>
+<div class="price"><?php echo $pass_num;?>
+<div class="priceLabel">Passport number</div>
+</div>
 </div>
 </div>
 

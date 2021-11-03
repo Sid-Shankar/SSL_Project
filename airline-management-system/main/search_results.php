@@ -132,13 +132,13 @@ $con = new mysqli("localhost","root","","airline_system");
       
 
       <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto " href="index.php">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.php#about">About Us</a></li>
+      <ul>
+          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
           <li><a class="nav-link scrollto" href="process_login_signup.php">Book now</a></li>
-          <li><a class="nav-link  scrollto active" href="search_flights.html">Search flights</a></li>
-          <li><a class="nav-link scrollto" href="index.php#contact">Contact Us</a></li>
-          <li><a class="nav-link scrollto" href="index.php#faq">FAQ</a></li>
+          <li><a class="nav-link  scrollto active" href="search_flights.php">Search flights</a></li>
+          <li><a class="nav-link scrollto" href="https://github.com/Sid-Shankar/SSL_Project" target="_blank">Github repo</a></li>
+          <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
           <li><a class="getstarted scrollto" href="process_login_signup.php">Login/Signup</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -199,8 +199,8 @@ $con = new mysqli("localhost","root","","airline_system");
 <?php
 
 
-$get_source=$_POST["departure_airport_id"];
-$get_destination=$_POST["arrival_airport_id"];
+$get_source=$_POST["start"];
+$get_destination=$_POST["destination"];
 $get_doj=$_POST["date"];
 
 
@@ -297,9 +297,9 @@ else
               <li><i class="bx bx-chevron-right"></i> <a href="process_login_signup.php">Login/Signup</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="index.php#about">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="process_login_signup.php">Book Now</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="search_flights.html">Search flights</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="search_flights.php">Search flights</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="index.php#faq">FAQ</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="index.php#contact">Contact Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/Sid-Shankar/SSL_Project" target="_blank">Github repo</a></li>
             </ul>
           </div>
 
@@ -322,7 +322,7 @@ else
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Airline Management system</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Airline Management system | CS213: SSL Course Project</span></strong>
       </div>
     </div>
   </footer><!-- End Footer -->
