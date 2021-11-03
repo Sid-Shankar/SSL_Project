@@ -126,7 +126,7 @@
          <label for="exampleInputPassword1">Select Class</label>
          <select name="class" class="form-control">
          <option value="Economy">Economy</option>
-         <option value="Buisness">Business</option>
+         <option value="Business">Business</option>
          </select>
         </div>
         <div class="form-group col-md-6">

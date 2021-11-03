@@ -175,7 +175,7 @@ if(isset($_GET['del']))
 
 <td>
                                       
-              <a href="print_ticket.php?id=<?php echo $rows['id']?>&del=print" onClick="return confirm('Are you sure you want to print this ticket ?')">
+              <a href="print_ticket.php?id=<?php echo $Rows['id']?>&del=print" onClick="return confirm('Are you sure you want to print this ticket ?')">
                    <button class="btn btn-warning">Print</button>
                </a>
                   </td>

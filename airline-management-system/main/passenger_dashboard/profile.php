@@ -132,7 +132,9 @@ $rows=$result->fetch_assoc()
 
                             <div class="form-group">
 
-                            <label for=""><b><u>Note:</u> Password is stored in hashed format for security purposes. </b></label>
+                            <label for=""><b><u>Note:</u>  1. Password is stored in hashed format for security purposes. </b></label>
+                            <label for=""><b> 2. To change your password, enter new password and click on 'Save Changes' . </b></label>
+                            <label for=""><b> 3. If you don't want to change your password, leave the password field empty. </b></label>
                             </div>
     
     
@@ -169,11 +171,11 @@ $rows=$result->fetch_assoc()
                           <?php
                             if(isset($rows['password'])){
                           ?>
-                          <input type="name" class="form-control" name="password" placeholder="Enter Password" value="<?php echo $rows['password'];?>" required>
+                          <input type="name" class="form-control" name="password" placeholder="" value="" >
                           <?php
                             }else{
                             ?>
-                          <input type="name" class="form-control" name="password" placeholder="Enter Password" required>
+                          <input type="name" class="form-control" name="password" placeholder="" >
                            <?php
                             }
                             ?>
@@ -206,14 +208,12 @@ function profileValidation() {
 
 	$("#name").removeClass("error-field");
 	$("#email").removeClass("error-field");
-	$("#password").removeClass("error-field");
 	$("#passport_number").removeClass("error-field");
 
 
 	var Name = $("#passenger_id").val();
 	var Email = $("#email_id").val();
 	var Passportno=$("#passport_no").val();
-	var Password = $('#password').val();
 	var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 
@@ -243,22 +243,12 @@ function profileValidation() {
 		$("#email").addClass("error-field");
 		valid = false;
 	}
-	if (Password.trim() == "") {
-		$("#password_info").html("required.").css("color", "#ee0000").show();
-		$("#password").addClass("error-field");
-		valid = false;
-	}
+
 	if (valid == false) {
 		$('.error-field').first().focus();
 		valid = false;
 	}
 
-
- if(valid==true)
- {
-     
-    
- }
 
 	
  return valid;
