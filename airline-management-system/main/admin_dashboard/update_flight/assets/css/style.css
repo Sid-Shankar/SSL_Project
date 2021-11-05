@@ -1,6 +1,4 @@
-﻿
-
-@import url(http://fonts.googleapis.com/css?family=Roboto); /* FREE GOOGLE FONT */
+﻿@import url(http://fonts.googleapis.com/css?family=Roboto); /* FREE GOOGLE FONT */
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -66,9 +64,7 @@ background-color:#F0677C;
 -webkit-border-radius:50%;
     -moz-border-radius:50%;
 }
-/* =============================================================
-   HEADER SECTION STYLES
- ============================================================ */
+
 header {
     background-color: #F0677C;
     color: #fff;
@@ -77,9 +73,7 @@ header {
 }
 
 
-/* =============================================================
-   LOGO SECTION STYLES
- ============================================================ */
+
 .left-div {
     padding-left: 30px;
     margin-top: 40px;
@@ -185,9 +179,7 @@ header {
 .navbar {
     margin-bottom: 0px;
 }
-/* =============================================================
-   FOOTER SECTION STYLES
- ============================================================ */
+
 footer {
     padding: 10px;
     color: #fff;
@@ -200,11 +192,6 @@ footer {
         text-decoration: none;
     }
 
-/*==============================================
-    DASHBOARD  STYLES    
- =============================================*/
-
-/* DASHBOARD ICONS */
 
 .bk-clr-one {
     background-color: #B9B739;

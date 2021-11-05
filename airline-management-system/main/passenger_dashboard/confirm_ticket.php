@@ -1,4 +1,16 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
+
 $name=$_POST["name"];
 $email=$_POST["email"];
 $pass_num=$_POST["pass_num"];
@@ -8,7 +20,7 @@ $password = "";
 $dbname = "airline_system";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-session_start();
+//session_start();
 $flight_no=$_SESSION['flight_no'] ;
 $_SESSION['final_ticket_flight_no']=$flight_no ;
 $fair_paid=$_SESSION['fare_paid'] ;

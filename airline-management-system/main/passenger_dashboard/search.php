@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +41,12 @@
                     <a href="index.php"><span class="las la-home"></span>
                     <span>Dashboard</span></a>
                 </li>
+                <br>
                 <li>
                     <a href="flights.php" class="active"><span class="las la-plane"></span>
                     <span>Airlines Available</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="booking.php" ><span class="las la-clipboard-list"></span>
                     <span>View Bookings</span></a>

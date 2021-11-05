@@ -1,10 +1,21 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "airline_system";
 $mysqli = new mysqli($servername, $username, $password, $dbname);
-session_start();
+//session_start();
 $passenger_id=$_SESSION["passenger_id"];
 $people=$_SESSION['people'] ;
 $flight=$_SESSION['flight'];

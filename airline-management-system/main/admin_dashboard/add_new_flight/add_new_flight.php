@@ -1,4 +1,16 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["admin_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = ".../admin_login/index.php";
+  header("Location: $url");
+} 
+
+
 use AMS\Member;
 if (! empty($_POST["signup-btn"])) {
     require_once './Model/Member.php';
@@ -6,8 +18,6 @@ if (! empty($_POST["signup-btn"])) {
     $registrationResponse = $member->registerMember();
 }
 ?>
-
-
 
 <html>
 <head>
@@ -63,7 +73,7 @@ if (! empty($_POST["signup-btn"])) {
 								Type of flight<span class="required error" id="type_of_flight_info"></span>
 							</div>
 							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." name="type_of_flight"
-								id="type_of_flight">
+								id="type_of_flight" placeholder="Eg: Domestic" >
 						</div>
 					</div>
 					<div class="row">
@@ -72,7 +82,7 @@ if (! empty($_POST["signup-btn"])) {
 								Flight no.<span class="required error" id="flight_no_info"></span>
 							</div>
 							<input class="input-box-330" type="number" name="flight_no"
-								id="flight_no">
+								id="flight_no" placeholder="Eg: 911" >
 						</div>
 					</div>
 					<div class="row">
@@ -81,7 +91,7 @@ if (! empty($_POST["signup-btn"])) {
 								Airline<span class="required error" id="airline_info"></span>
 							</div>
 							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="20" title="Max 20  characters without digits are required."  name="airline"
-								id="airline"  >
+								id="airline" placeholder="Eg: Vistara" >
 						</div>
 					</div>
 					<div class="row">
@@ -89,7 +99,7 @@ if (! empty($_POST["signup-btn"])) {
 							<div class="form-label">
 								Source<span class="required error" id="source_info"></span>
 							</div>
-							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." name="source" id="source">
+							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required." name="source" id="source" placeholder="Eg: Delhi" >
 						</div>
 					</div>
 					<div class="row">
@@ -99,7 +109,7 @@ if (! empty($_POST["signup-btn"])) {
 									id="destination_info"></span>
 							</div>
 							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required."
-								name="destination" id="destination">
+								name="destination" id="destination" placeholder="Eg: Mumbai" >
 						</div>
 					</div>
 					<div class="row">
@@ -108,7 +118,7 @@ if (! empty($_POST["signup-btn"])) {
 								Intermediate Stops<span class="required error" id="intermediate_stops_info"></span>
 							</div>
 							<input class="input-box-330" type="text" pattern="[a-zA-Z0-9/-]+" maxlength="50" title="Max 50 characters with / or - allowed are required."
-								name="intermediate_stops" id="intermediate_stops">
+								name="intermediate_stops" id="intermediate_stops" placeholder="Eg: 1-stop-jaipur" >
 						</div>
 					</div>
 					<div class="row">
@@ -148,7 +158,7 @@ if (! empty($_POST["signup-btn"])) {
 									id="type_of_class_info"></span>
 							</div>
 							<input class="input-box-330" type="text" pattern="[a-zA-Z]+" maxlength="50" title="Max 50  characters without digits are required."
-								name="type_of_class" id="type_of_class">
+								name="type_of_class" id="type_of_class" placeholder="Eg: Economy" >
 						</div>
 					</div>
 					<div class="row">
@@ -158,17 +168,17 @@ if (! empty($_POST["signup-btn"])) {
 									id="meal_info"></span>
 							</div>
 							<input class="input-box-330" type="text" pattern="[a-zA-Z/-]+" maxlength="50" title="Max 50  characters without digits and / or - allowed are required."
-								name="meal" id="meal">
+								name="meal" id="meal" placeholder="Eg: Veg/Non-veg" >
 						</div>
 					</div>
 					<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Amount<span class="required error"
+								Amount (in Rs.)<span class="required error"
 									id="amount_info"></span>
 							</div>
 							<input class="input-box-330" type="number"
-								name="amount" id="amount">
+								name="amount" id="amount" placeholder="Eg: 5400" >
 						</div>
 					</div>
 					<div class="row">
@@ -178,7 +188,7 @@ if (! empty($_POST["signup-btn"])) {
 									id="discount_info"></span>
 							</div>
 							<input class="input-box-330" type="number"
-								name="discount" id="discount">
+								name="discount" id="discount" placeholder="Eg: 20" >
 						</div>
 					</div>
 					<div class="row">
@@ -188,7 +198,7 @@ if (! empty($_POST["signup-btn"])) {
 									id="flight_status_info"></span>
 							</div>
 							<input class="input-box-330" type="text" pattern="[a-zA-Z/-]+" maxlength="50" title="Max 50  characters without digits and / or - allowed are required."
-								name="flight_status" id="flight_status">
+								name="flight_status" id="flight_status" placeholder="Eg: On-time" >
 						</div>
 					</div>
 					<div class="row">

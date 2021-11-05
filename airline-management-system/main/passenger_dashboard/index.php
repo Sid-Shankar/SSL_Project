@@ -1,6 +1,15 @@
-
 <?php
+
 session_start();
+
+if (!isset($_SESSION["passenger_id"])) 
+{
+    session_unset();
+    session_write_close();
+    $url = "../passenger_login_signup/passenger_login.php";
+    header("Location: $url");
+} 
+
 $passenger_id=$_SESSION['passenger_id'];
 $mysqli = new mysqli("localhost","root","","airline_system");
 $sql = "SELECT * FROM airline_system.flights
@@ -44,7 +53,7 @@ while($rows=$result->fetch_assoc())
                     <a href="" class="active"><span class="las la-home"></span>
                     <span>Dashboard</span></a>
                 </li>
-
+<br>
                 <li>
                     <a href="flights.php"><span class="las la-plane"></span>
                     <span>Airlines Available</span></a>

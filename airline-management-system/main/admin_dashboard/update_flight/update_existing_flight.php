@@ -1,5 +1,15 @@
 <?php
 session_start();
+
+if (!isset($_SESSION["admin_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = ".../admin_login/index.php";
+  header("Location: $url");
+} 
+
+
 use AMS\Member;
 if (! empty($_POST["signup-btn"])) {
     require_once './Model/Member.php';

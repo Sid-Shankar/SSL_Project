@@ -1,5 +1,15 @@
 <?php
+
 session_start();
+
+if (!isset($_SESSION["admin_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = ".../admin_login/index.php";
+  header("Location: $url");
+} 
+
 
 error_reporting(0);
 
@@ -17,8 +27,8 @@ if(isset($_GET['upd']))
               //mysqli_query($con,"delete from flights where id = '".$flightid."'");
                   $_SESSION['updmsg']="Message from server: Successfully updated flight details !";
 
-             // ** Note: We also need to change flight_status in booked_flights of this deleted flight
-             // code for that to be written here     
+             // ** Note: Booked_flights table will be automatically updated.
+                 
       }
 
 
@@ -85,7 +95,7 @@ body {
                  
                 <font color="purple" align="center">&nbsp; &nbsp; &nbsp;<?php echo htmlentities($_SESSION['updmsg']);?><?php echo htmlentities($_SESSION['updmsg']="");?></font>
                 <div class="col-md-12">
-                    <!--    Bordered Table  -->
+                   
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Wanna go back to dashboard ?
@@ -95,28 +105,28 @@ body {
                               </a>              
                             </span>
                         </div>
-                        <!-- /.panel-heading -->
+                        
                         <div class="panel-body">
                             <div class="table-responsive table-bordered">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Type of flight</th>
-                                            <th>Flight no. </th>
-                                            <th>Airline</th>
-                                            <th>Source </th>
-                                            <th>Destination</th>
-                                            <th>Intermediate stops</th>
-                                            <th>Date of journey</th>
-                                            <th>Departure time</th>
-                                            <th>Arrival time</th>
-                                            <th>Type of class</th>
-                                            <th>Meal</th>
-                                            <th>Amount</th>
-                                            <th>Discount</th>
-                                            <th>Flight status</th>
-                                            <th>Action</th>
+                                        <th>#</th>
+                                        <th>Type of flight</th>
+                                        <th>Flight no. </th>
+                                        <th>Airline</th>
+                                        <th>Source </th>
+                                        <th>Destination</th>
+                                        <th>Intermediate stops</th>
+                                        <th>Date of journey</th>
+                                        <th>Departure time</th>
+                                        <th>Arrival time</th>
+                                        <th>Type of class</th>
+                                        <th>Meal</th>
+                                        <th>Amount</th>
+                                        <th>Discount</th>
+                                        <th>Flight status</th>
+                                        <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -128,45 +138,43 @@ while($row=mysqli_fetch_array($sql))
 ?>
 
 
-                                        <tr>
-                                        <td><?php echo $cnt;?></td>
-                                        <td><?php echo htmlentities($row['type_of_flight']);?></td>
-                                              <td><?php echo htmlentities($row['flight_no']);?></td>
-                                              <td><?php echo htmlentities($row['airline']);?></td>
-                                            <td><?php echo htmlentities($row['source']);?></td>
-                                            <td><?php echo htmlentities($row['destination']);?></td>
-                                            <td><?php echo htmlentities($row['intermediate_stops']);?></td>
-                                             <td><?php echo htmlentities($row['date_of_journey']);?></td>
-                                             <td><?php echo htmlentities($row['departure_time']);?></td>
-                                             <td><?php echo htmlentities($row['arrival_time']);?></td>
-                                             <td><?php echo htmlentities($row['type_of_class']);?></td>
-                                             <td><?php echo htmlentities($row['meal']);?></td>
-                                            
-                                             
-                                             <td><?php echo htmlentities($row['amount']);?></td>
-                                             <td><?php echo htmlentities($row['discount']);?></td>
-                                             <td><?php echo htmlentities($row['flight_status']);?></td>
-                                            <td>
+<tr>
+<td><?php echo $cnt;?></td>
+<td><?php echo htmlentities($row['type_of_flight']);?></td>
+<td><?php echo htmlentities($row['flight_no']);?></td>
+<td><?php echo htmlentities($row['airline']);?></td>
+<td><?php echo htmlentities($row['source']);?></td>
+<td><?php echo htmlentities($row['destination']);?></td>
+<td><?php echo htmlentities($row['intermediate_stops']);?></td>
+<td><?php echo htmlentities($row['date_of_journey']);?></td>
+<td><?php echo htmlentities($row['departure_time']);?></td>
+<td><?php echo htmlentities($row['arrival_time']);?></td>
+<td><?php echo htmlentities($row['type_of_class']);?></td>
+<td><?php echo htmlentities($row['meal']);?></td>                                     
+<td><?php echo htmlentities($row['amount']);?></td>
+<td><?php echo htmlentities($row['discount']);?></td>
+<td><?php echo htmlentities($row['flight_status']);?></td>
+<td>
                                       
 <a href="update_flight.php?id=<?php echo $row['id']?>&upd=update" onClick="return confirm('Are you sure you want to update?')">
-                                            <button class="btn btn-success">Update</button>
+<button class="btn btn-success">Update</button>
 </a>
-                                            </td>
+</td>
                                             
-                                        </tr>
+</tr>
 <?php 
 $cnt++;
 } ?>
 
                                         
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                     <!--  End  Bordered Table  -->
-                </div>
-            </div>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
 
 
 

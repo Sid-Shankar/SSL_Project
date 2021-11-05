@@ -163,8 +163,8 @@ class Member
             $loginPassword = 0;
         }
         if ($loginPassword == 1) {
-            // login sucess so store the member's username in
-            // the session
+            // means login sucess so store the passenger's ID in the session variable
+            
             session_start();
             $_SESSION["passenger_id"] = $memberRecord[0]["passenger_id"];
 

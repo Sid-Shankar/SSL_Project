@@ -1,10 +1,21 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "airline_system";
 $mysqli = new mysqli($servername, $username, $password, $dbname);
-session_start();
+//session_start();
 $passenger_id = $_SESSION['passenger_id'];
 $sql = "SELECT * FROM airline_system.flights
         WHERE airline_system.flights.flight_no
@@ -45,12 +56,12 @@ $result = $mysqli->query($sql);
                     <a href="flights.php"><span class="las la-plane"></span>
                     <span>Airlines Available</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="" class="active"><span class="las la-clipboard-list"></span>
                     <span>View Bookings</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="ticket.php"><span class="las la-ticket-alt"></span>
                     <span>Book Ticket</span></a>

@@ -15,14 +15,11 @@ include "createdb.php";
   <meta content="" name="keywords">
 
   
-  
-
-  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+ 
   <link href="assets_welcome_page/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets_welcome_page/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets_welcome_page/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -31,55 +28,10 @@ include "createdb.php";
   <link href="assets_welcome_page/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets_welcome_page/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
   <link href="assets_welcome_page/css/style.css" rel="stylesheet">
 
 
   <style>
-
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: rgba(17, 88, 209, 0.9);
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid rgba(17, 88, 209, 0.9);
-  border-top-color: #fff;
-  border-bottom-color: #fff;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: animate-preloader 1s linear infinite;
-  animation: animate-preloader 1s linear infinite;
-}
-
-@-webkit-keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 #header .logo {
       font-size: 20px;
@@ -95,6 +47,22 @@ include "createdb.php";
       max-height: 40px;
     }
     
+    #hero .btn-get-started {
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px 11px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px 0 0 0;
+  color: #fff;
+  background: #ee7a1b;
+}
+#hero .btn-get-started:hover {
+  background: #db5d08;
+}
 
     .col-sm-3 {
     width: 100%;
@@ -106,7 +74,6 @@ include "createdb.php";
 
 <body>
 
-  <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
@@ -120,17 +87,16 @@ include "createdb.php";
           <li><a class="nav-link scrollto" href="#about">About Us</a></li>
           <li><a class="nav-link scrollto" href="process_login_signup.php">Book now</a></li>
           <li><a class="nav-link   scrollto" href="search_flights.php">Search flights</a></li>
-          <li><a class="nav-link scrollto" href="https://github.com/Sid-Shankar/SSL_Project" target="_blank">Github repo</a></li>
+          <li><a class="nav-link scrollto" href="https://github.com/Sid-Shankar/SSL_Project" target="_blank">Github</a></li>
           <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
           <li><a class="getstarted scrollto" href="process_login_signup.php">Login/Signup</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav>
 
     </div>
-  </header><!-- End Header -->
+  </header>
 
-  <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
     <div class="container">
@@ -154,11 +120,10 @@ include "createdb.php";
       </div>
     </div>
 
-  </section><!-- End Hero -->
+  </section>
 
   <main id="main">
 
-    <!-- ======= Cliens Section ======= -->
     <section id="cliens" class="cliens section-bg">
       <div class="container">
         <div class="section-title">
@@ -168,35 +133,36 @@ include "createdb.php";
         <div class="row" data-aos="zoom-in">
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_welcome_page/img/clients/client-1.png" class="img-fluid" alt="">
+            <img src="assets_welcome_page/img/planes_profile/pic1.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_welcome_page/img/clients/client-2.png" class="img-fluid" alt="">
+            <img src="assets_welcome_page/img/planes_profile/pic2.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_welcome_page/img/clients/client-3.png" class="img-fluid" alt="">
+            <img src="assets_welcome_page/img/planes_profile/pic3.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_welcome_page/img/clients/client-4.png" class="img-fluid" alt="">
+            <img src="assets_welcome_page/img/planes_profile/pic4.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_welcome_page/img/clients/client-6.png" class="img-fluid" alt="">
+            <img src="assets_welcome_page/img/planes_profile/pic6.png" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="assets_welcome_page/img/clients/client-7.png" class="img-fluid" alt="">
+            <img src="assets_welcome_page/img/planes_profile/pic7.png" class="img-fluid" alt="">
           </div>
+
 
         </div>
 
       </div>
-    </section><!-- End Cliens Section -->
+    </section>
 
-    <!-- ======= About Us Section ======= -->
+  
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
@@ -229,10 +195,10 @@ include "createdb.php";
         </div>
 
       </div>
-    </section><!-- End About Us Section -->
+    </section>
 
 
-    <!-- ======= Services Section ======= -->
+    
     <section id="services" class="services section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -280,23 +246,23 @@ include "createdb.php";
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section>
 
 
-    <!-- ======= Team Section ======= -->
+
     <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Our Team</h2>
-          <p>Meet our team members who developed this website</p>
+          <p>Meet our team members who have developed this website</p>
         </div>
 
         <div class="row">
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="assets_welcome_page/img/clients/usericon-resize.png" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets_welcome_page/img/planes_profile/usericon.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Raghav Magazine</h4>
                 <span>Web Developer</span>
@@ -313,10 +279,10 @@ include "createdb.php";
 
           <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
-              <div class="pic"><img src="assets_welcome_page/img/clients/usericon-resize.png" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets_welcome_page/img/planes_profile/usericon.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Siddharth Shankar</h4>
-                <span>Web developer</span>
+                <span>Web Developer</span>
                 <p>200030056</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
@@ -330,10 +296,10 @@ include "createdb.php";
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
-              <div class="pic"><img src="assets_welcome_page/img/clients/usericon-resize.png" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets_welcome_page/img/planes_profile/usericon.png" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Tarun Saini</h4>
-                <span>Web developer</span>
+                <span>Web Developer</span>
                 <p>200010051</p>
                 <div class="social">
                   <a href=""><i class="ri-twitter-fill"></i></a>
@@ -350,14 +316,14 @@ include "createdb.php";
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section>
 
-    <!-- ======= Pricing Section ======= -->
+    
     <section id="pricing" class="pricing">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Plans for Travellers</h2>
+          <h2>Plans for Passengers</h2>
           <p>Choose that plan which fits your lifestyle</p>
         </div>
 
@@ -411,9 +377,9 @@ include "createdb.php";
         </div>
 
       </div>
-    </section><!-- End Pricing Section -->
+    </section>
 
-    <!-- ======= Frequently Asked Questions Section ======= -->
+    
     <section id="faq" class="faq section-bg">
       <div class="container" data-aos="fade-up">
 
@@ -452,7 +418,7 @@ include "createdb.php";
                   class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                  Login into your account, then on the user dashboard page, select 'cancel ticket' option to cancel your
+                  Login into your account, then on the passenger dashboard page, select 'Flight status' and then click on 'Cancel Booking' button to cancel your
                   ticket.
                 </p>
               </div>
@@ -485,10 +451,10 @@ include "createdb.php";
         </div>
 
       </div>
-    </section><!-- End Frequently Asked Questions Section -->
+    </section>
 
 
-  </main><!-- End #main -->
+  </main>
 
 
 
@@ -560,66 +526,21 @@ function formValidation() {
 </script>
 
 
-  <!-- ======= Footer ======= -->
+  
   <footer id="footer">
 
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Airline Management System</h3>
-            <p>
-              XYZ Road <br>
-              Dharwad, Karnataka 1100XX<br>
-              India <br><br>
-              <strong>Phone:</strong> +91-99999999<br>
-              <strong>Email:</strong> infoxyz@iitdh.ac.in<br>
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Important Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="process_login_signup.php">Login/Signup</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="process_login_signup.php">Book Now</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="search_flights.php">Search flights</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#faq">FAQ</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/Sid-Shankar/SSL_Project" target="_blank">Github repo</a></li>
-            </ul>
-          </div>
-
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Connect with us through any of them</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Airline Management system | CS213: SSL Course Project</span></strong>
+        &copy; Copyright <strong><span>Airline Management system | CS213: SSL Course Project Autumn 2021</span></strong>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
+  
   <script src="assets_welcome_page/vendor/aos/aos.js"></script>
   <script src="assets_welcome_page/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets_welcome_page/vendor/glightbox/js/glightbox.min.js"></script>
@@ -628,7 +549,7 @@ function formValidation() {
   <script src="assets_welcome_page/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets_welcome_page/vendor/waypoints/noframework.waypoints.js"></script>
 
-  <!-- Template Main JS File -->
+  
   <script src="assets_welcome_page/js/main.js"></script>
 
 </body>

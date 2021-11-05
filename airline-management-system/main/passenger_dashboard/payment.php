@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
 $flight=$_SESSION['flight'];
 $flight_type=$_SESSION['flight_type'];
 $start=$_SESSION['start'];
@@ -59,12 +68,12 @@ $result = $conn->query($sql);
                     <a href="booking.php"><span class="las la-clipboard-list"></span>
                     <span>View Bookings</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="" class="active"><span class="las la-ticket-alt"></span>
                     <span>Book Ticket</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="status.php"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>

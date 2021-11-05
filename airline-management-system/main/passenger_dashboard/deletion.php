@@ -9,7 +9,7 @@ $del = mysqli_query($db,"DELETE FROM airline_system.booked_flights WHERE flight_
 if($del)
 {                                               
     mysqli_close($db);
-    header("location:confirm_deletion.php");
+    header("location:status.php");
     exit;	
 }
 else

@@ -22,7 +22,6 @@ class Member
     {    
         $response="";
         
-            $adminid = $_POST["admin_id"];
             $name=$_POST["name"];
             $emailid=$_POST["email_id"];
             $contactno=$_POST["contact_no"];
@@ -34,11 +33,10 @@ class Member
 
                $hashedPassword = password_hash($_POST["new_password"], PASSWORD_DEFAULT);
 
-               $query = "UPDATE admin_info SET  admin_id=?,password=?,admin_name=?,email_id=?,contact_no=?;";
+               $query = "UPDATE admin_info SET  password=?,admin_name=?,email_id=?,contact_no=?;";
 
-               $paramType = 'ssssi';
+               $paramType = 'sssi';
                $paramValue = array(
-                $adminid,
                 $hashedPassword,
                 $name,
                 $emailid,
@@ -57,11 +55,10 @@ class Member
             }
           else
           {
-            $query = "UPDATE admin_info SET  admin_id=?,admin_name=?,email_id=?,contact_no=?;";
+            $query = "UPDATE admin_info SET  admin_name=?,email_id=?,contact_no=?;";
             
-            $paramType = 'sssi';
+            $paramType = 'ssi';
             $paramValue = array(
-                $adminid,
                 $name,
                 $emailid,
                 $contactno

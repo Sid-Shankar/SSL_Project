@@ -8,7 +8,7 @@ body {
   display: inline-block;
   width: 600px;
   margin: 20px;
-  background-color: rgba(241, 102, 22, 0.932);
+  background-color: #fff;
   border-radius: 10px;
   color: #fff;
   font-family: Helvetica Neue;
@@ -78,7 +78,7 @@ body {
 }
 .ticket .airports .airport .airport-code {
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 600;
   margin: 5px 0;
 }
 .ticket .airports .airport .dep-arr-label {
@@ -127,7 +127,7 @@ body {
 .ticket .place {
   padding: 10px;
   text-align: center;
-  height: 750px;
+  height: 850px;
 }
 .ticket .place-block {
   display: inline-block;
@@ -141,7 +141,7 @@ body {
   margin-bottom: 10px;
 }
 .ticket .place-block .place-value {
-  color: #9299A0;
+  color: #707884;
   font-size: 12px;
   font-weight: 500;
 }
@@ -157,20 +157,20 @@ body {
   height: 100%;
 }
 
-.ticket.inverse {
+.ticket.pass {
   background-color: #F8F8F8;
 }
-.ticket.inverse header {
+.ticket.pass header {
   background-color: #e45807;
   height: 53px;
 }
-.ticket.inverse .airports {
+.ticket.pass .airports {
   border-bottom-color: #D3D6DA;
 }
-.ticket.inverse .airport:first-child:after {
+.ticket.pass .airport:first-child:after {
   color: #D3D6DA;
 }
-.ticket.inverse .airport .airport-code {
+.ticket.pass .airport .airport-code {
   color: #707884;
   font-weight: 500;
 }

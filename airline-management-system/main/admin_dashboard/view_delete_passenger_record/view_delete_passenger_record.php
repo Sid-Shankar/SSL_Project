@@ -1,5 +1,14 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["admin_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = ".../admin_login/index.php";
+  header("Location: $url");
+} 
 
 error_reporting(0);
 
@@ -14,8 +23,8 @@ if(isset($_GET['del']))
               mysqli_query($con,"delete from passenger_info where id = '".$pasid."'");
                   $_SESSION['delmsg']="Message from server: Passenger record successfully deleted from passenger_info table !";
 
-             // ** Note: We also need to delete passenger record from booked_flights table
-             // code for that to be written here     
+             // ** Note: We are not deleting any flight booked by passenger for this project. 
+                 
       }
 
 
@@ -83,7 +92,7 @@ body {
                  
                 <font color="purple" align="center">&nbsp; &nbsp; &nbsp;<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?></font>
                 <div class="col-md-12">
-                    <!--    Bordered Table  -->
+                   
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Wanna go back to dashboard ?
@@ -93,18 +102,18 @@ body {
                               </a>              
                             </span>
                         </div>
-                        <!-- /.panel-heading -->
+                        
                         <div class="panel-body">
                             <div class="table-responsive table-bordered">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Passenger ID</th>
-                                            <th>Name </th>
-                                            <th>Email ID </th>
-                                            <th>Passport no.</th>
-                                            <th>Action</th>
+                                        <th>#</th>
+                                        <th>Passenger ID</th>
+                                        <th>Name </th>
+                                        <th>Email ID </th>
+                                        <th>Passport no.</th>
+                                        <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -116,32 +125,32 @@ while($row=mysqli_fetch_array($sql))
 ?>
 
 
-                                        <tr>
-                                            <td><?php echo $cnt;?></td>
-                                            <td><?php echo htmlentities($row['passenger_id']);?></td>
-                                            <td><?php echo htmlentities($row['pass_name']);?></td>
-                                            <td><?php echo htmlentities($row['email_id']);?></td>
-                                            <td><?php echo htmlentities($row['passport_no']);?></td>
-                                            <td>
+<tr>
+<td><?php echo $cnt;?></td>
+<td><?php echo htmlentities($row['passenger_id']);?></td>
+<td><?php echo htmlentities($row['pass_name']);?></td>
+<td><?php echo htmlentities($row['email_id']);?></td>
+<td><?php echo htmlentities($row['passport_no']);?></td>
+<td>
                                       
 <a href="view_delete_passenger_record.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')">
-                                            <button class="btn btn-danger">Delete</button>
+<button class="btn btn-danger">Delete</button>
 </a>
-                                            </td>
-                                        </tr>
+</td>
+</tr>
 <?php 
 $cnt++;
 } ?>
 
                                         
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                     <!--  End  Bordered Table  -->
-                </div>
-            </div>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
 
 
 

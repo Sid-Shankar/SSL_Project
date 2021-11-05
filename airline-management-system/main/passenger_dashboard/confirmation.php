@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
 $_SESSION['flight']=$_POST['flight'];
 $_SESSION['flight_type']=$_POST['flight_type'];
 $_SESSION['start']=$_POST['start'];

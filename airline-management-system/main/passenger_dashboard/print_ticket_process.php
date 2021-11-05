@@ -1,13 +1,19 @@
 <?php
 session_start();
 
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
 //error_reporting(0);
 
 $con = new mysqli("localhost","root","","airline_system");
 
 
 $booked_id=$_SESSION["booked_flight_id"];
-
 
 
 //echo $booked_id;
@@ -31,10 +37,43 @@ while($row=mysqli_fetch_array($sql))
   <title>Print ticket</title>
   <link rel="stylesheet" href="css/print_style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+
+.ticket {
+  display: inline-block;
+  width: 600px;
+  margin: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #fff;
+  font-family: Helvetica Neue;
+  font-weight: 300;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+    .ticket .place-block .place-value {
+  color: #707884;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ticket .place {
+  padding: 10px;
+  text-align: center;
+  height: 900px;
+}
+
+.ticket.pass .airport .airport-code {
+  color: #707884;
+  font-weight: 500;
+}
+  </style>
 </head>
 <body style="text-align:center;">
-<!-- partial:index.partial.html -->
-<div class="ticket inverse">
+
+<div class="ticket pass">
   <header>
     <div class="company-name">
       &nbsp; BOARDING PASS
@@ -81,7 +120,7 @@ while($row=mysqli_fetch_array($sql))
       </div>
     </div>
     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="place-block">
       <div class="place-label">
         Arrival
@@ -142,7 +181,7 @@ while($row=mysqli_fetch_array($sql))
         </div>
       </div>
 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <div class="place-block">
         <div class="place-label">
          TOTAL AMOUNT
@@ -209,6 +248,16 @@ while($row=mysqli_fetch_array($sql))
     </div>
     <div class="place-value">
     &nbsp;&nbsp;&nbsp;  <?php echo $row['passenger_count'];?>
+    </div>
+  </div>
+
+  <section class="place">
+  <div class="place-block">
+    <div class="place-label">
+      Reservation Status
+    </div>
+    <div class="place-value">
+    <?php echo $row['reservation_status'];?>
     </div>
   </div>
 

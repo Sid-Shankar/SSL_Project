@@ -1,10 +1,22 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "airline_system";
 $mysqli = new mysqli($servername, $username, $password, $dbname);
-session_start();
+//session_start();
 $passenger_id = $_SESSION['passenger_id'];
 $sql = "SELECT * FROM airline_system.flights
         WHERE airline_system.flights.flight_no
@@ -19,8 +31,7 @@ if(isset($_GET['del']))
               
               $_SESSION['booked_flight_id']=$pasid;
               header("location: print_ticket_process.php");
-          //  $_SESSION['delmsg']="Message from server: Passenger record successfully deleted from passenger_info table !";
-
+        
                
       }
 

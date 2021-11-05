@@ -1,18 +1,15 @@
 <?php
+
 session_start();
-if (isset($_SESSION["admin_id"])) {
-    $admin_id = $_SESSION["admin_id"];
-} else {
 
-    // means the username is not set in session, the user is not-logged-in
-    // he is trying to access this page unauthorized
-    // so let's clear all session variables and redirect him to admin login
+if (!isset($_SESSION["admin_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../admin_login/index.php";
+  header("Location: $url");
+} 
 
-    session_unset();
-    session_write_close();
-    $url = "../admin_login/index.php";
-    header("Location: $url");
-}
 
 ?>
 <!DOCTYPE html>
@@ -26,15 +23,11 @@ if (isset($_SESSION["admin_id"])) {
   <meta content="" name="description">
   <meta content="" name="keywords">
   
-<!-- Favicons are not needed (that logo on tab name)-->
-  
-
-  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+
   <link href="../assets_welcome_page/vendor/aos/aos.css" rel="stylesheet">
   <link href="../assets_welcome_page/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets_welcome_page/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -49,7 +42,7 @@ if (isset($_SESSION["admin_id"])) {
     <link rel="stylesheet" href="admin_dashboard_sidebar.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <!-- Template Main CSS File -->
+ 
   <link href="../assets_welcome_page/css/style.css" rel="stylesheet">
   <link href="../assets_welcome_page/css/style2.css" rel="stylesheet">
 
@@ -87,7 +80,7 @@ if (isset($_SESSION["admin_id"])) {
     </div>
 <div class="main-content">
 <main>
-	 <!-- ======= Header ======= -->
+	 
         <header>
            <h2>
              <label for="nav-toggle">
@@ -96,7 +89,7 @@ if (isset($_SESSION["admin_id"])) {
             Admin Dashboard
             </h2>
         </header>
-    <!-- ======= Dashboard Section ======= -->
+    
     <section id="services" class="services section-bg">
       <div class="container" data-aos="fade-up">
         <div class="row">
@@ -183,8 +176,8 @@ if (isset($_SESSION["admin_id"])) {
       </div>
     </section>
 </main>
-</div><!--End #mainContent-->   
-  <!-- Vendor JS Files -->
+</div>   
+  
   <script src="../assets_welcome_page/vendor/aos/aos.js"></script>
   <script src="../assets_welcome_page/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../assets_welcome_page/vendor/glightbox/js/glightbox.min.js"></script>
@@ -193,7 +186,7 @@ if (isset($_SESSION["admin_id"])) {
   <script src="../assets_welcome_page/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="../assets_welcome_page/vendor/waypoints/noframework.waypoints.js"></script>
 
-  <!-- Template Main JS File -->
+  
   <script src="../assets_welcome_page/js/main.js"></script>
 
 </body>

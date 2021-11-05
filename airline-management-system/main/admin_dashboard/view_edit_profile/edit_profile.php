@@ -1,5 +1,15 @@
 <?php
 session_start();
+
+if (!isset($_SESSION["admin_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = ".../admin_login/index.php";
+  header("Location: $url");
+} 
+
+
 use AMS\Member;
 if (! empty($_POST["signup-btn"])) {
     require_once './Model/Member.php';
@@ -33,6 +43,21 @@ while($row=mysqli_fetch_array($sql)){
            background-size: cover; 
         }
       
+		.ams-container button{
+	padding: 8px 0px;
+	font-size: 1em;
+	cursor: pointer;
+	border-radius: 3px;
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #037DFF   ;
+	border-color: #037DFF  #037DFF   #037DFF   ;
+}
+
+.ams-container button {
+	background-color: #037DFF   ;
+}
+
  </style>
 
 	</head>
@@ -48,6 +73,9 @@ while($row=mysqli_fetch_array($sql)){
 					<br>
 					<p>2) New password and Confirm new password fields can be left</p>
 					<p> empty if you don't need to change password.</p>
+					<br>
+					<p>3) Admin ID cannot be changed due to security reasons.</p>
+					
 
 				<?php
     if (! empty($registrationResponse["status"])) {
@@ -67,15 +95,6 @@ while($row=mysqli_fetch_array($sql)){
     }
     ?>
 				<div class="error-msg" id="error-msg"></div>
-					<div class="row">
-						<div class="inline-block">
-							<div class="form-label">
-								Admin ID<span class="required error" id="admin_id_info"></span>
-							</div>
-							<input class="input-box-330" type="text" name="admin_id"
-								id="admin_id" value="<?php echo $row['admin_id'];?>" >
-						</div>
-					</div>
 					<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
@@ -100,7 +119,7 @@ while($row=mysqli_fetch_array($sql)){
 							<div class="form-label">
 								Name<span class="required error" id="name_info"></span>
 							</div>
-							<input class="input-box-330" type="text" name="name" id="name" value="<?php echo $row['admin_name'];?>">
+							<input class="input-box-330" type="text" name="name" id="name" value="<?php echo $row['admin_name'];?>" pattern="[a-zA-Z]+" maxlength="50" title="Max 50 alphabets without digits are required.">
 						</div>
 					</div>
 					<div class="row">
@@ -143,7 +162,6 @@ function signupValidation() {
 	var valid = true;
 
 
-	$("#admin_id").removeClass("error-field");
 	$("#new_password").removeClass("error-field");
 	$("#confirm_new_password").removeClass("error-field");
 	$("#email_id").removeClass("error-field");
@@ -152,7 +170,6 @@ function signupValidation() {
 	
 
 
-	var Adminid = $("#admin_id").val();
 	var newPassword = $("#new_password").val();
 	var ConfirmnewPassword=$("#confirm_new_password").val();
 	var Name=$("#name").val();
@@ -162,14 +179,6 @@ function signupValidation() {
 	
 
 	
-   
-
-   if(Adminid.trim() == "")
-   {
-	     $("#admin_id_info").html("required.").css("color", "#ee0000").show();
-		$("#admin_id").addClass("error-field");
-		valid = false;
-   }   
 	if(newPassword != ConfirmnewPassword){
         $("#error-msg").html("Both passwords must be filled and same OR both must be left empty.").show();
         valid=false;

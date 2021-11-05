@@ -1,4 +1,15 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
         $start =  $_POST['start'];
         $destination = $_POST['destination'];
         $date =  $_POST['date'];
@@ -34,12 +45,12 @@
                     <a href="index.php"><span class="las la-home"></span>
                     <span>Dashboard</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="flights.php" class="active"><span class="las la-plane"></span>
                     <span>Airlines Available</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="booking.php"><span class="las la-clipboard-list"></span>
                     <span>View Bookings</span></a>
@@ -84,6 +95,10 @@
         </header> 
         <main>
          <div class="card-single">
+<?php
+if($result->num_rows > 0)
+{
+?>                
             <h2>Available Flights</h2>
         </div> 
         <div class="card-single">
@@ -120,7 +135,21 @@
                 }
              ?>
          </table>
-        </div>      
+        </div>
+        <?php
+}else{
+    ?>  
+<center><h2>No flights are available as per your search</h2></center>
+<button id="mybutton" type="button" class="btn btn-warning" >Back To Search </button>
+<script type="text/javascript">
+         document. getElementById("mybutton"). onclick = function () 
+         {
+         location. href = "search.php";
+         };
+</script>
+<?php
+}
+?>              
         </main>
     </div>  
     </body>

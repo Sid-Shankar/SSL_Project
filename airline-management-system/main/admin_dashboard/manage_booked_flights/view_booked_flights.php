@@ -1,5 +1,15 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["admin_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = ".../admin_login/index.php";
+  header("Location: $url");
+} 
+
 
 error_reporting(0);
 
@@ -71,31 +81,31 @@ body {
                 <div class="row" >
                  
                 <div class="col-md-12">
-                    <!--    Bordered Table  -->
+                   
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Wanna go back to dashboard ?
                             <span>
                             <a href="../admin_dashboard.php" >
-                                            <button class="btn btn-primary">Go back to dashboard</button>
+                            <button class="btn btn-primary">Go back to dashboard</button>
                               </a>              
                             </span>
                         </div>
-                        <!-- /.panel-heading -->
+                        
                         <div class="panel-body">
                             <div class="table-responsive table-bordered">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Flight no.</th>
-                                            <th>Airline</th>
-                                            <th>Passenger ID</th>
-                                            <th>Passenger name </th>
-                                            <th>Passport No. </th>
-                                            <th>Fare paid</th>
-                                            <th>Travellers count</th>
-                                            <th>Reservation status</th>
+                                        <th>#</th>
+                                        <th>Flight no.</th>
+                                        <th>Airline</th>
+                                        <th>Passenger ID</th>
+                                        <th>Passenger name </th>
+                                        <th>Passport No. </th>
+                                        <th>Fare paid</th>
+                                        <th>Travellers count</th>
+                                        <th>Reservation status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -107,38 +117,37 @@ while($row=mysqli_fetch_array($sql))
 ?>
 
 
-                                        <tr>
-                                        <td><?php echo $cnt;?></td>
-                                              <td><?php echo htmlentities($row['flight_no']);?></td>
-                                              <td><?php echo htmlentities($row['airline']);?></td>
-                                              <td><?php echo htmlentities($row['passenger_id']);?></td>
-                                            <td><?php echo htmlentities($row['pass_name']);?></td>
-                                            <td><?php echo htmlentities($row['passport_no']);?></td>
-                                            <td><?php echo htmlentities($row['fare_paid']);?></td>
-                                            <td><?php echo htmlentities($row['passenger_count']);?></td>
-                                            <td><?php echo htmlentities($row['reservation_status']);?></td>
-                                            
-                                        </tr>
+ <tr>
+
+<td><?php echo $cnt;?></td>
+<td><?php echo htmlentities($row['flight_no']);?></td>
+<td><?php echo htmlentities($row['airline']);?></td>
+<td><?php echo htmlentities($row['passenger_id']);?></td>
+<td><?php echo htmlentities($row['pass_name']);?></td>
+<td><?php echo htmlentities($row['passport_no']);?></td>
+<td>Rs.<?php echo htmlentities($row['fare_paid']);?></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo htmlentities($row['passenger_count']);?></td>
+<td><?php echo htmlentities($row['reservation_status']);?></td>                                            
+
+</tr>
 <?php 
 $cnt++;
 } ?>
 
                                         
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                     <!--  End  Bordered Table  -->
-                </div>
-            </div>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+                    
+</div>
+</div>
 
 
-
-
-      </div>
-        </div>
-    </div>
+</div>
+</div>
+</div>
 
     <script src="assets/js/jquery-1.11.1.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->

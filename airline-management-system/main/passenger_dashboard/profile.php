@@ -1,10 +1,21 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "airline_system";
 $mysqli = new mysqli($servername, $username, $password, $dbname);
-session_start();
+//session_start();
 $passenger_id = $_SESSION['passenger_id'];
 $sql = "SELECT * FROM airline_system.passenger_info WHERE passenger_id='$passenger_id'";     
 $result = $mysqli->query($sql);
@@ -78,12 +89,12 @@ $rows=$result->fetch_assoc()
                     <a href="status.php"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="" class="active"><span class="las la-user-circle"></span>
                     <span>Profile</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="../passenger_login_signup/passenger_logout.php"><span class="las la-sign-out-alt"></span>
                     <span>Sign Out</span></a>
@@ -185,7 +196,7 @@ $rows=$result->fetch_assoc()
                             <?php
                             if(isset($rows['passport_no'])){
                             ?>
-                            <input type="text" class="form-control" name="passport_number" placeholder="Enter Passport Number" value="<?php echo $rows['passport_no'];?>" required>
+                            <input type="text" pattern="[a-zA-Z0-9]+"	maxlength="8" title="Passport length should not be greater than 8 aplha-numeric characters." class="form-control" name="passport_number" placeholder="Enter Passport Number" value="<?php echo $rows['passport_no'];?>" required>
                             <?php
                             }else{
                             ?>

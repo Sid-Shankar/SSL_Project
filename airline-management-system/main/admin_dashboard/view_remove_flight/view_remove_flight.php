@@ -1,5 +1,15 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["admin_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = ".../admin_login/index.php";
+  header("Location: $url");
+} 
+
 
 error_reporting(0);
 
@@ -14,8 +24,9 @@ if(isset($_GET['del']))
               mysqli_query($con,"delete from flights where id = '".$flightid."'");
                   $_SESSION['delmsg']="Message from server: Flight successfully removed from flights table !";
 
-             // ** Note: We also need to change flight_status in booked_flights of this deleted flight
-             // code for that to be written here     
+             // ** Note: We are not deleting any flight from booked_flights because we are assuming
+             // admin is aware of the fact that doing so may lead to ambiguity among passengers.
+                
       }
 
 
@@ -84,7 +95,7 @@ body {
                  
                 <font color="purple" align="center">&nbsp; &nbsp; &nbsp;<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?></font>
                 <div class="col-md-12">
-                    <!--    Bordered Table  -->
+                    
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Wanna go back to dashboard ?
@@ -94,7 +105,7 @@ body {
                               </a>              
                             </span>
                         </div>
-                        <!-- /.panel-heading -->
+                        
                         <div class="panel-body">
                             <div class="table-responsive table-bordered">
                                 <table class="table">
@@ -147,7 +158,7 @@ while($row=mysqli_fetch_array($sql))
                                              <td><?php echo htmlentities($row['flight_status']);?></td>
                                             <td>
                                       
-<a href="remove_flight.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to remove?')">
+<a href="view_remove_flight.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to remove?')">
                                             <button class="btn btn-success">Remove</button>
 </a>
                                             </td>
@@ -163,7 +174,7 @@ $cnt++;
                             </div>
                         </div>
                     </div>
-                     <!--  End  Bordered Table  -->
+                     
                 </div>
             </div>
 

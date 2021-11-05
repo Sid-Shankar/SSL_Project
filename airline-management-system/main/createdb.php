@@ -1,6 +1,5 @@
 <?php
 
-//Updates:Added passport_no and passenger_count in booked_flights table 
 
 $connect = new mysqli("localhost","root","");
 
@@ -73,7 +72,7 @@ if (!mysqli_query($connect, $sql))
 $pass_password="pass123";
 $pass_hashed_paswd= password_hash($pass_password, PASSWORD_DEFAULT);
 
-$sql="INSERT INTO airline_system.passenger_info (passenger_id,password,pass_name,email_id,passport_no) SELECT * FROM (SELECT 'sid123', '$pass_hashed_paswd', 'siddharth', 'test@example.com', 'A7654321') AS tmp WHERE NOT EXISTS (SELECT passenger_id from airline_system.passenger_info WHERE passenger_id='sid123') LIMIT 1";
+$sql="INSERT INTO airline_system.passenger_info (passenger_id,password,pass_name,email_id,passport_no) SELECT * FROM (SELECT 'testpass', '$pass_hashed_paswd', 'dummyuser', 'test@example.com', 'A7654321') AS tmp WHERE NOT EXISTS (SELECT passenger_id from airline_system.passenger_info WHERE passenger_id='testpass') LIMIT 1";
 
 
 if (!mysqli_query($connect, $sql)) 
@@ -129,39 +128,6 @@ if (!mysqli_query($connect, $sql))
 {
   echo "Error creating table: " . mysqli_error($connect);
 }
-
-
-$sql="INSERT INTO airline_system.flights (type_of_flight,flight_no,airline,source,destination,intermediate_stops,date_of_journey,departure_time,arrival_time,type_of_class,meal,amount,discount,flight_status)
-    SELECT * FROM (SELECT 'Domestic', '911', 'Vistara','Delhi' , 'Mumbai' , '1-stop-jaipur', '2021-10-20', '20:44:00', '23:44:00' , 'Economy' , 'Veg/Non-veg' , '5700', '20', 'On-time' ) AS tmp
-    WHERE NOT EXISTS (SELECT flight_no FROM airline_system.flights WHERE flight_no ='911') LIMIT 1 ";
-
-if (!mysqli_query($connect, $sql)) 
-{
-    echo "Error inserting data: " . mysqli_error($connect);
-}
-
-
-$sql="INSERT INTO airline_system.flights (type_of_flight,flight_no,airline,source,destination,intermediate_stops,date_of_journey,departure_time,arrival_time,type_of_class,meal,amount,discount,flight_status)
-    SELECT * FROM (SELECT 'International', '423','Emirates', 'London' , 'Singapore' , 'Non-stop', '2021-11-14', '18:22:00', '22:56:00' , 'Business' , 'Veg/Non-veg' , '23800', '10', 'On-time') AS tmp
-    WHERE NOT EXISTS (SELECT flight_no FROM airline_system.flights WHERE flight_no ='423') LIMIT 1 ";
-
-
-if (!mysqli_query($connect, $sql)) 
-{
-    echo "Error inserting data: " . mysqli_error($connect);
-}
-
-
-//MODIFIED to insert a sample booked flight, need to see how it works
-
-//UPDATE:(2 nov 2021): Removing automatic insert of sample flight below
-
-//$sql="INSERT INTO airline_system.booked_flights (flight_no,airline,passenger_id,pass_name,passport_no,fare_paid,passenger_count,reservation_status) SELECT * FROM (SELECT '911','Vistara','sid123', 'siddharth', 'A7654321', '5700', '2','Waiting') AS tmp WHERE NOT EXISTS (SELECT pass_name from airline_system.booked_flights WHERE pass_name='siddharth') LIMIT 1";
-
-//if (!mysqli_query($connect, $sql)) 
-//{
- //   echo "Error inserting data: " . mysqli_error($connect);
-//}
 
 
 

@@ -48,8 +48,7 @@ class Member
             $loginPassword = 0;
         }
         if ($loginPassword == 1) {
-            // login sucess so store the member's username in
-            // the session
+            // means login sucess so store the admin's id in session variable
             session_start();
             $_SESSION["admin_id"] = $memberRecord[0]["admin_id"];
 

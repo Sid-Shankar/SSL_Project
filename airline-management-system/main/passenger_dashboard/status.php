@@ -1,16 +1,28 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "airline_system";
 $mysqli = new mysqli($servername, $username, $password, $dbname);
-session_start();
+//session_start();
 $passenger_id = $_SESSION['passenger_id'];
 $sql = "SELECT * FROM airline_system.flights
         WHERE airline_system.flights.flight_no
         IN (SELECT flight_no FROM airline_system.booked_flights WHERE passenger_id='$passenger_id')";     
 $result = $mysqli->query($sql);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

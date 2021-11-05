@@ -1,7 +1,18 @@
 <?php
+
+session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
         $flight_no =  $_POST['flight_no'];
         $mysqli = new mysqli("localhost","root","","airline_system");
-        session_start();
+        //session_start();
         $_SESSION['flight_no'] = $flight_no;
         $passenger_id = $_SESSION['passenger_id'];
         $sql = "SELECT * FROM airline_system.flights
@@ -58,12 +69,12 @@
                     <a href="ticket.php"><span class="las la-ticket-alt"></span>
                     <span>Book Ticket</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="status.php" class="active"><span class="las la-signal"></span>
                     <span>Flight Status</span></a>
                 </li>
-                
+                <br>
                 <li>
                     <a href="profile.php"><span class="las la-user-circle"></span>
                     <span>Profile</span></a>
@@ -88,6 +99,10 @@
         </header> 
         <main>
          <div class="card-single">
+<?php
+if($result->num_rows > 0)
+{
+?>             
             <h2>Selected Flight</h2>
         </div> 
         <div class="card-single">
@@ -125,7 +140,7 @@
                 }
              ?>
          </table>
-        </div>  
+        </div>          
         <div class="card-single">
         <button id="myButton" type="button" class="btn btn-danger" onclick="Alert()">Confirm Cancellation</button>
 
@@ -134,7 +149,23 @@
         location.href = "deletion.php";
     };
 </script>
-        </div>   
+        </div> 
+        <?php
+}else{
+    ?>  
+<center><h2>Oops ! Flight does not exist</h2></center>
+<button id="mybutton" type="button" class="btn btn-warning" >Back To Status </button>
+<script type="text/javascript">
+         document. getElementById("mybutton"). onclick = function () 
+         {
+         location. href = "status.php";
+         };
+</script>
+<?php
+}
+?>        
+        
+        
         </main>
     </div>  
     </body>

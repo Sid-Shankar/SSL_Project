@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["passenger_id"]))
+{
+   session_unset();
+  session_write_close();
+  $url = "../passenger_login_signup/index.php";
+  header("Location: $url");
+} 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
