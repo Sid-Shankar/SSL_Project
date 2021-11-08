@@ -2,17 +2,17 @@
 This repo is for SSL Autumn 2021 course project.
 
 UPDATES:
+8 Nov 2021:
+* Added project final zip file: 16.zip
+* Project Code: 16
 
 5 Nov 2021:
-* Username and password for sample records (inserted automatically):
+* Username and password for sample admin record (inserted automatically):
  
-ADMIN:
-Username: admin
-Password: admin
+* ADMIN:
+* Username: admin
+* Password: admin
 
-TEST PASSENGER:
-Username: testpass
-Password: pass123
 
 4 Nov 2021:
 * Modified search results and final ticket.
